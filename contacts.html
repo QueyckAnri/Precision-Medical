@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacts - Precision Medical</title>
+  <meta name="description" content="Precision Medical - Global Access to Micron-Precision Surgery. Connect with Us for Emergency Admissions, General Inquiries, and Medical Documents.">
+
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Serif:wght@600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+  <!-- Shared global styles (header, nav, page transitions, base tokens) -->
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- Tailwind CDN & Config -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-bright": "#fcf9f8",
+            "surface-container-high": "#eae7e7",
+            "surface-container-highest": "#e4e2e2",
+            "surface-variant": "#e4e2e2",
+            "surface-container": "#f0eded",
+            "surface-container-low": "#f6f3f3",
+            "surface-container-lowest": "#ffffff",
+            "surface-dim": "#dcd9d9",
+            "on-background": "#1b1c1c",
+            "on-surface": "#1b1c1c",
+            "on-surface-variant": "#5a4139",
+            "on-tertiary-container": "#fcfcfc",
+            "on-primary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "on-error": "#ffffff",
+            "inverse-surface": "#303030",
+            "inverse-on-surface": "#f3f0f0",
+            "outline": "#8e7067",
+            "outline-variant": "#e2bfb4",
+            "tertiary": "#5b5c5c",
+            "secondary": "#625d5d",
+            "secondary-container": "#e5dedd",
+            "on-secondary-container": "#666161",
+            "tertiary-container": "#737575",
+            "tertiary-fixed": "#e2e2e2",
+            "tertiary-fixed-dim": "#c6c6c7",
+            "on-tertiary-fixed": "#1a1c1c",
+            "on-tertiary-fixed-variant": "#454747",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+            "surface": "#fcf9f8",
+            "surface-tint": "#ab3600",
+            "primary": "#F55F24", // Match color accent (#F55F24)
+            "primary-container": "#d04504",
+            "on-primary-container": "#fffbff",
+            "on-primary-fixed": "#390c00",
+            "on-primary-fixed-variant": "#822700",
+            "primary-fixed": "#ffdbcf",
+            "primary-fixed-dim": "#ffb59c",
+            "inverse-primary": "#ffb59c",
+            "background": "#fcf9f8",
+            "secondary-fixed": "#e8e1e0",
+            "secondary-fixed-dim": "#ccc5c4",
+            "on-secondary-fixed": "#1e1b1b",
+            "on-secondary-fixed-variant": "#4a4646"
+          },
+          borderRadius: {
+            DEFAULT: "12px",
+            sm: "8px",
+            lg: "20px",
+            xl: "28px",
+            "2xl": "40px",
+            full: "9999px"
+          },
+          spacing: {
+            lg: "24px",
+            xs: "4px",
+            gutter: "24px",
+            xl: "40px",
+            "margin-desktop": "64px",
+            sm: "8px",
+            unit: "4px",
+            "margin-mobile": "16px",
+            md: "16px"
+          },
+          fontFamily: {
+            "code-data": ["JetBrains Mono"],
+            "body-lg": ["Inter"],
+            "label-caps": ["JetBrains Mono"],
+            "headline-lg": ["JetBrains Mono"],
+            "body-sm": ["Inter"],
+            "headline-lg-mobile": ["JetBrains Mono"],
+            "display-lg": ["JetBrains Mono"],
+            "display-sm": ["JetBrains Mono"],
+            "headline-md": ["JetBrains Mono"],
+            "body-md": ["Inter"]
+          },
+          fontSize: {
+            "code-data": ["14px", { lineHeight: "1.4", fontWeight: "400" }],
+            "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+            "label-caps": ["12px", { lineHeight: "1.4", letterSpacing: "0.05em", fontWeight: "500" }],
+            "headline-lg": ["24px", { lineHeight: "1.2", fontWeight: "700" }],
+            "body-sm": ["14px", { lineHeight: "1.5", fontWeight: "400" }],
+            "headline-lg-mobile": ["20px", { lineHeight: "1.2", fontWeight: "700" }],
+            "display-lg": ["64px", { lineHeight: "1.0", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "display-sm": ["36px", { lineHeight: "1.1", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "headline-md": ["18px", { lineHeight: "1.2", fontWeight: "700" }],
+            "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }]
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- JS page-transition detection -->
+  <script>document.documentElement.classList.add('js-enabled');</script>
+
+  <style>
+    /* Allow scrolling on this subpage */
+    html, body {
+      overflow: auto !important;
+      height: auto !important;
+    }
+    /* Enforce Tiposka for display headings only */
+    h1, h2, h3 {
+      font-family: 'Tiposka', 'JetBrains Mono', 'IBM Plex Serif', monospace !important;
+    }
+    /* Material Symbols */
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       Keyframes & Animations
+       ═══════════════════════════════════════════════════════════════════════════ */
+    @keyframes revealUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes radarPulse {
+      0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.4;
+      }
+      100% {
+        transform: scale(1.4);
+        opacity: 0;
+      }
+    }
+
+    @keyframes scanLine {
+      0% {
+        top: 0%;
+      }
+      50% {
+        top: 100%;
+      }
+      100% {
+        top: 0%;
+      }
+    }
+
+    /* Scroll Reveal Base */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: opacity, transform;
+    }
+    
+    .scroll-reveal.reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+    .delay-400 { transition-delay: 400ms; }
+    .delay-500 { transition-delay: 500ms; }
+    .delay-600 { transition-delay: 600ms; }
+    .delay-700 { transition-delay: 700ms; }
+    .delay-800 { transition-delay: 800ms; }
+
+    /* Infinite scrolling text to the left */
+    @keyframes marqueeLeft {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-50% - 2rem));
+      }
+    }
+
+    /* Infinite scrolling text to the right */
+    @keyframes marqueeRight {
+      0% {
+        transform: translateX(calc(-50% - 2rem));
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    /* Interactive Hover Cards */
+    .contact-card {
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(245, 95, 36, 0.03) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .contact-card:hover {
+      border-color: #F55F24 !important;
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(38, 35, 35, 0.04);
+    }
+    .contact-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Radar Pulse for WebGL Map */
+    .radar-pulse-ring {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border: 1.5px solid rgba(245, 95, 36, 0.35);
+      border-radius: 50%;
+      animation: radarPulse 3s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+      pointer-events: none;
+    }
+    .radar-pulse-ring-2 {
+      animation-delay: 1.5s;
+    }
+
+    /* Map scan line */
+    .map-scanner-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(245, 95, 36, 0.4), transparent);
+      animation: scanLine 8s linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Button sliding fill hover */
+    .btn-fill-hover {
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease;
+    }
+    .btn-fill-hover::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: #F55F24;
+      z-index: -1;
+      transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .btn-fill-hover:hover {
+      color: #FFFFFF !important;
+      border-color: #F55F24 !important;
+    }
+    .btn-fill-hover:hover::before {
+      left: 0;
+    }
+  </style>
+</head>
+<body class="font-body-md text-body-md antialiased">
+  <div class="subpage-root">
+
+    <!-- ── HEADER (shared pattern across all subpages) ───────────── -->
+    <header class="header header-subpage">
+      <div class="logo-container">
+        <a href="index.html" class="logo-link">
+          <img id="logo-img" src="/icons/logo.png" alt="Precision Medical Logo" class="logo-icon">
+        </a>
+      </div>
+      <nav class="nav-menu">
+        <a href="departments.html"    class="nav-link">Departments</a>
+        <a href="about-us.html"       class="nav-link">About Us</a>
+        <a href="our-surgeons.html"   class="nav-link">Our Surgeons</a>
+        <a href="second-opinion.html" class="nav-link">Second Opinion</a>
+        <a href="contacts.html"       class="nav-link active">Contacts</a>
+      </nav>
+    </header>
+
+    <!-- ── MAIN CONTENT ── -->
+    <main class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-xl">
+
+      <!-- Main Info Hub -->
+      <section class="mb-xl">
+        <h1 class="font-display-sm md:font-display-lg text-display-sm md:text-display-lg mb-xl max-w-4xl uppercase scroll-reveal delay-100">
+          Global Access to Micron-Precision Surgery. Connect with Us.
+        </h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+          <!-- Emergency & Planned -->
+          <div class="border border-outline-variant dark:border-outline p-lg flex flex-col justify-between min-h-[180px] bg-white rounded-xl hover:border-primary transition-all duration-300 contact-card scroll-reveal delay-200">
+            <div class="relative z-10">
+              <span class="font-label-caps text-label-caps text-primary block mb-xs">URGENT &amp; PLANNED</span>
+              <h3 class="font-headline-md text-headline-md mb-sm uppercase">Emergency Admissions</h3>
+            </div>
+            <div class="font-code-data text-code-data relative z-10">
+              <a href="tel:+18005550199" class="text-on-surface hover:text-primary transition-colors">+1 (800) 555-0199</a>
+            </div>
+          </div>
+
+          <!-- General Inquiries -->
+          <div class="border border-outline-variant dark:border-outline p-lg flex flex-col justify-between min-h-[180px] bg-white rounded-xl hover:border-primary transition-all duration-300 contact-card scroll-reveal delay-300">
+            <div class="relative z-10">
+              <span class="font-label-caps text-label-caps text-primary block mb-xs">SUPPORT</span>
+              <h3 class="font-headline-md text-headline-md mb-sm uppercase">General Inquiries</h3>
+            </div>
+            <div class="font-code-data text-code-data relative z-10">
+              <a href="mailto:info@precisionmedical.com" class="text-on-surface hover:text-primary transition-colors">info@precisionmedical.com</a>
+            </div>
+          </div>
+
+          <!-- Medical Documents -->
+          <div class="border border-outline-variant dark:border-outline p-lg flex flex-col justify-between min-h-[180px] bg-white rounded-xl hover:border-primary transition-all duration-300 contact-card scroll-reveal delay-400">
+            <div class="relative z-10">
+              <span class="font-label-caps text-label-caps text-primary block mb-xs">CLINICAL DATA</span>
+              <h3 class="font-headline-md text-headline-md mb-sm uppercase">Medical Documents</h3>
+            </div>
+            <div class="font-code-data text-code-data relative z-10">
+              <a href="mailto:records@precisionmedical.com" class="text-on-surface hover:text-primary transition-colors">records@precisionmedical.com</a>
+            </div>
+          </div>
+
+          <!-- Clinical HQ -->
+          <div class="border border-outline-variant dark:border-outline p-lg flex flex-col justify-between min-h-[180px] bg-white rounded-xl hover:border-primary transition-all duration-300 contact-card scroll-reveal delay-500">
+            <div class="relative z-10">
+              <span class="font-label-caps text-label-caps text-primary block mb-xs">LOCATION</span>
+              <h3 class="font-headline-md text-headline-md mb-sm uppercase">Clinical Headquarters</h3>
+            </div>
+            <div class="font-code-data text-code-data text-secondary relative z-10">
+              742 Neuro Way, Suite 100<br>Zurich, Switzerland
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Digital Navigation -->
+      <section class="mb-xl scroll-reveal delay-600">
+        <div class="w-full h-[500px] border border-outline-variant relative overflow-hidden flex items-center justify-center bg-surface-container-low rounded-xl">
+          <div class="map-scanner-line"></div>
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div class="radar-pulse-ring"></div>
+            <div class="radar-pulse-ring radar-pulse-ring-2"></div>
+          </div>
+          
+          <div class="relative z-10 text-center px-lg">
+            <p class="font-label-caps text-label-caps text-secondary mb-md">WebGL Interactive Map Interface</p>
+            <div class="flex flex-wrap justify-center gap-md">
+              <a href="https://maps.google.com" target="_blank" class="bg-on-surface text-surface-bright px-lg py-sm rounded-xl flex items-center gap-sm font-label-caps text-label-caps hover:bg-primary transition-colors decoration-none">
+                <span class="material-symbols-outlined text-[18px]">map</span>OPEN IN GOOGLE MAPS
+              </a>
+              <a href="https://maps.apple.com" target="_blank" class="border border-on-surface text-on-surface px-lg py-sm rounded-xl flex items-center gap-sm font-label-caps text-label-caps hover:bg-on-surface hover:text-surface-bright transition-all decoration-none">
+                <span class="material-symbols-outlined text-[18px]">location_on</span>APPLE MAPS
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fast Chat & Status -->
+      <section class="grid grid-cols-1 lg:grid-cols-2 gap-gutter mb-xl items-stretch scroll-reveal delay-700">
+        <div class="p-lg bg-surface-container-highest flex flex-col md:flex-row items-center gap-lg rounded-xl">
+          <div class="flex flex-wrap gap-md">
+            <a class="bg-[#25D366] text-white px-xl py-md rounded-xl flex items-center gap-sm font-label-caps text-label-caps hover:opacity-90 transition-opacity decoration-none" href="https://wa.me/18005550199" target="_blank">
+              <span class="material-symbols-outlined">chat</span>WHATSAPP
+            </a>
+            <a class="bg-[#0088cc] text-white px-xl py-md rounded-xl flex items-center gap-sm font-label-caps text-label-caps hover:opacity-90 transition-opacity decoration-none" href="https://t.me/precisionmedical" target="_blank">
+              <span class="material-symbols-outlined">send</span>TELEGRAM
+            </a>
+          </div>
+          <div class="text-center md:text-left">
+            <p class="flex items-center justify-center md:justify-start gap-xs font-body-sm text-body-sm text-on-surface">
+              <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>Operators online.
+            </p>
+            <p class="font-code-data text-code-data text-secondary">Average response time: 3 minutes.</p>
+          </div>
+        </div>
+        
+        <div class="border border-[#363232] p-lg flex flex-col gap-sm rounded-xl bg-[#262323] overflow-hidden justify-center">
+          <!-- Row 1: Left -->
+          <div class="w-full overflow-hidden whitespace-nowrap">
+            <div class="marquee-track" style="display: inline-flex; gap: 4rem; animation: marqueeLeft 30s linear infinite; font-family: 'Tiposka', 'JetBrains Mono', 'IBM Plex Serif', monospace !important; letter-spacing: 0.05em; font-style: normal;">
+              <span class="text-primary font-body-md text-body-md whitespace-nowrap">
+                Our digital concierges are medical coordinators trained to handle complex inquiries with the same precision our surgeons use in the theater
+              </span>
+              <span class="text-primary font-body-md text-body-md whitespace-nowrap">
+                Our digital concierges are medical coordinators trained to handle complex inquiries with the same precision our surgeons use in the theater
+              </span>
+            </div>
+          </div>
+
+          <!-- Row 2: Right -->
+          <div class="w-full overflow-hidden whitespace-nowrap border-t border-[#363232] pt-sm">
+            <div class="marquee-track" style="display: inline-flex; gap: 4rem; animation: marqueeRight 35s linear infinite; font-family: 'Tiposka', 'JetBrains Mono', 'IBM Plex Serif', monospace !important; letter-spacing: 0.05em; font-style: normal;">
+              <span class="text-primary font-body-md text-body-md whitespace-nowrap">
+                Our digital concierges are medical coordinators trained to handle complex inquiries with the same precision our surgeons use in the theater
+              </span>
+              <span class="text-primary font-body-md text-body-md whitespace-nowrap">
+                Our digital concierges are medical coordinators trained to handle complex inquiries with the same precision our surgeons use in the theater
+              </span>
+            </div>
+          </div>
+
+          <!-- Row 3: Left -->
+          <div class="w-full overflow-hidden whitespace-nowrap border-t border-[#363232] pt-sm">
+            <div class="marquee-track" style="display: inline-flex; gap: 4rem; animation: marqueeLeft 28s linear infinite; font-family: 'Tiposka', 'JetBrains Mono', 'IBM Plex Serif', monospace !important; letter-spacing: 0.05em; font-style: normal;">
+              <span class="text-primary font-body-md text-body-md whitespace-nowrap">
+                Our digital concierges are medical coordinators trained to handle complex inquiries with the same precision our surgeons use in the theater
+              </span>
+              <span class="text-primary font-body-md text-body-md whitespace-nowrap">
+                Our digital concierges are medical coordinators trained to handle complex inquiries with the same precision our surgeons use in the theater
+              </span>
+            </div>
+          </div>
+
+          <!-- Row 4: Right -->
+          <div class="w-full overflow-hidden whitespace-nowrap border-t border-[#363232] pt-sm">
+            <div class="marquee-track" style="display: inline-flex; gap: 4rem; animation: marqueeRight 32s linear infinite; font-family: 'Tiposka', 'JetBrains Mono', 'IBM Plex Serif', monospace !important; letter-spacing: 0.05em; font-style: normal;">
+              <span class="text-primary font-body-md text-body-md whitespace-nowrap">
+                Our digital concierges are medical coordinators trained to handle complex inquiries with the same precision our surgeons use in the theater
+              </span>
+              <span class="text-primary font-body-md text-body-md whitespace-nowrap">
+                Our digital concierges are medical coordinators trained to handle complex inquiries with the same precision our surgeons use in the theater
+              </span>
+            </div>
+          </div>
+
+          <!-- Row 5: Left -->
+          <div class="w-full overflow-hidden whitespace-nowrap border-t border-[#363232] pt-sm">
+            <div class="marquee-track" style="display: inline-flex; gap: 4rem; animation: marqueeLeft 25s linear infinite; font-family: 'Tiposka', 'JetBrains Mono', 'IBM Plex Serif', monospace !important; letter-spacing: 0.05em; font-style: normal;">
+              <span class="text-primary font-body-md text-body-md whitespace-nowrap">
+                Our digital concierges are medical coordinators trained to handle complex inquiries with the same precision our surgeons use in the theater
+              </span>
+              <span class="text-primary font-body-md text-body-md whitespace-nowrap">
+                Our digital concierges are medical coordinators trained to handle complex inquiries with the same precision our surgeons use in the theater
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conversion Footer Area -->
+      <section class="border-t border-outline-variant pt-xl mb-xl scroll-reveal delay-800">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+          <div class="p-xl bg-on-surface text-surface-bright flex flex-col justify-between min-h-[240px] rounded-xl">
+            <h2 class="font-display-sm text-display-sm uppercase leading-tight">Book an In-Person Consultation</h2>
+            <a href="consult.html" class="bg-primary text-on-primary w-fit px-xl py-md rounded-xl font-label-caps text-label-caps mt-xl hover:bg-primary-container transition-colors decoration-none">
+              SCHEDULE VISIT
+            </a>
+          </div>
+          <div class="p-xl border border-on-surface flex flex-col justify-between min-h-[240px] rounded-xl bg-white">
+            <h2 class="font-display-sm text-display-sm uppercase leading-tight text-on-surface">Submit MRI for Second Opinion</h2>
+            <a href="second-opinion.html" class="border border-primary text-primary w-fit px-xl py-md rounded-xl font-label-caps text-label-caps mt-xl hover:bg-primary hover:text-white transition-all decoration-none btn-fill-hover">
+              UPLOAD SCAN DATA
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Decorative Info Grid (Swiss Style) -->
+      <section class="grid grid-cols-2 md:grid-cols-4 gap-gutter border-t border-outline-variant pt-lg text-secondary scroll-reveal delay-800">
+        <div>
+          <p class="font-label-caps text-label-caps mb-xs">ISO CERTIFICATION</p>
+          <p class="font-code-data text-code-data">9001:2015 Precision Care</p>
+        </div>
+        <div>
+          <p class="font-label-caps text-label-caps mb-xs">TIMEZONE</p>
+          <p class="font-code-data text-code-data">CET (UTC +1)</p>
+        </div>
+        <div>
+          <p class="font-label-caps text-label-caps mb-xs">TELE-HEALTH</p>
+          <p class="font-code-data text-code-data">Available 24/7 Global</p>
+        </div>
+        <div>
+          <p class="font-label-caps text-label-caps mb-xs">DATA PROTECTION</p>
+          <p class="font-code-data text-code-data">HIPAA &amp; GDPR Compliant</p>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ── FOOTER (shared pattern across all subpages) ───────────── -->
+    <footer class="bg-surface-container w-full px-margin-desktop py-xl border-t border-outline-variant">
+      <div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-lg">
+        <div>
+          <div class="font-headline-md text-headline-md font-bold mb-sm uppercase">Precision Medical</div>
+          <div class="font-code-data text-code-data uppercase text-on-surface-variant">© 2026 NEUROSURGERY CLINIC. PRECISION IN PRACTICE.</div>
+        </div>
+        <div class="flex flex-wrap gap-lg">
+          <a class="font-code-data text-code-data uppercase text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">Privacy Protocol</a>
+          <a class="font-code-data text-code-data uppercase text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">Terms of Service</a>
+          <a class="font-code-data text-code-data uppercase text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">Patient Data Protection</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- IntersectionObserver for scroll-driven animations -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -80px 0px', // Trigger slightly before it hits the viewport
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.scroll-reveal').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+
+  <!-- Shared page-transition JS -->
+  <script type="module" src="/main.js"></script>
+</body>
+</html>

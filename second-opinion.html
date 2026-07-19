@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Second Opinion - Precision Medical</title>
+  <meta name="description" content="Precision Medical - Securely upload MRI/CT scans for a remote second opinion from our world-class neurosurgeons.">
+
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&family=IBM+Plex+Serif:wght@600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+  <!-- Shared global styles (header, nav, page transitions, base tokens) -->
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- Tailwind CDN & Config -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-bright": "#fcf9f8",
+            "surface-container-high": "#eae7e7",
+            "surface-container-highest": "#e4e2e2",
+            "surface-variant": "#e4e2e2",
+            "surface-container": "#f0eded",
+            "surface-container-low": "#f6f3f3",
+            "surface-container-lowest": "#ffffff",
+            "surface-dim": "#dcd9d9",
+            "on-background": "#1b1c1c",
+            "on-surface": "#1b1c1c",
+            "on-surface-variant": "#5a4139",
+            "on-tertiary-container": "#fcfcfc",
+            "on-primary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "on-error": "#ffffff",
+            "inverse-surface": "#303030",
+            "inverse-on-surface": "#f3f0f0",
+            "outline": "#8e7067",
+            "outline-variant": "#e2bfb4",
+            "tertiary": "#5b5c5c",
+            "secondary": "#625d5d",
+            "secondary-container": "#e5dedd",
+            "on-secondary-container": "#666161",
+            "tertiary-container": "#737575",
+            "tertiary-fixed": "#e2e2e2",
+            "tertiary-fixed-dim": "#c6c6c7",
+            "on-tertiary-fixed": "#1a1c1c",
+            "on-tertiary-fixed-variant": "#454747",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+            "surface": "#fcf9f8",
+            "surface-tint": "#ab3600",
+            "primary": "#F55F24", // Match color accent (#F55F24)
+            "primary-container": "#d04504",
+            "on-primary-container": "#fffbff",
+            "on-primary-fixed": "#390c00",
+            "on-primary-fixed-variant": "#822700",
+            "primary-fixed": "#ffdbcf",
+            "primary-fixed-dim": "#ffb59c",
+            "inverse-primary": "#ffb59c",
+            "background": "#fcf9f8",
+            "secondary-fixed": "#e8e1e0",
+            "secondary-fixed-dim": "#ccc5c4",
+            "on-secondary-fixed": "#1e1b1b",
+            "on-secondary-fixed-variant": "#4a4646"
+          },
+          borderRadius: {
+            DEFAULT: "12px",
+            sm: "8px",
+            lg: "20px",
+            xl: "28px",
+            "2xl": "40px",
+            full: "9999px"
+          },
+          spacing: {
+            lg: "24px",
+            xs: "4px",
+            gutter: "24px",
+            xl: "40px",
+            "margin-desktop": "64px",
+            sm: "8px",
+            unit: "4px",
+            "margin-mobile": "16px",
+            md: "16px"
+          },
+          fontFamily: {
+            "code-data": ["JetBrains Mono"],
+            "body-lg": ["Inter"],
+            "label-caps": ["JetBrains Mono"],
+            "headline-lg": ["JetBrains Mono"],
+            "body-sm": ["Inter"],
+            "headline-lg-mobile": ["JetBrains Mono"],
+            "display-lg": ["JetBrains Mono"],
+            "display-sm": ["JetBrains Mono"],
+            "headline-md": ["JetBrains Mono"],
+            "body-md": ["Inter"]
+          },
+          fontSize: {
+            "code-data": ["14px", { lineHeight: "1.4", fontWeight: "400" }],
+            "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+            "label-caps": ["12px", { lineHeight: "1.4", letterSpacing: "0.05em", fontWeight: "500" }],
+            "headline-lg": ["24px", { lineHeight: "1.2", fontWeight: "700" }],
+            "body-sm": ["14px", { lineHeight: "1.5", fontWeight: "400" }],
+            "headline-lg-mobile": ["20px", { lineHeight: "1.2", fontWeight: "700" }],
+            "display-lg": ["64px", { lineHeight: "1.0", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "display-sm": ["36px", { lineHeight: "1.1", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "headline-md": ["18px", { lineHeight: "1.2", fontWeight: "700" }],
+            "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }]
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- JS page-transition detection -->
+  <script>document.documentElement.classList.add('js-enabled');</script>
+
+  <style>
+    /* Allow scrolling on this subpage */
+    html, body {
+      overflow: auto !important;
+      height: auto !important;
+    }
+    /* Enforce Tiposka for display headings only */
+    h1, h2, h3 {
+      font-family: 'Tiposka', 'JetBrains Mono', 'IBM Plex Serif', monospace !important;
+    }
+    /* Material Symbols */
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+    /* bottom-border inputs */
+    .line-input {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(38, 35, 35, 0.2);
+      outline: none;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+    }
+    .line-input:focus {
+      border-bottom-color: #F55F24;
+      box-shadow: none;
+    }
+    /* File drag highlight */
+    .drag-over {
+      border-color: #F55F24 !important;
+      background-color: rgba(245, 95, 36, 0.02) !important;
+    }
+
+    /* Scroll Reveal Base Class */
+    .scroll-reveal {
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+
+    /* Scroll Reveal Transitions */
+    .reveal-fade-up {
+      transform: translateY(40px);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-fade-left {
+      transform: translateX(45px);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-fade-right {
+      transform: translateX(-45px);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-scale-up {
+      transform: scale(0.96) translateY(20px);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Revealed Class applied by JS */
+    .scroll-reveal.revealed {
+      opacity: 1;
+      transform: translate(0) scale(1);
+    }
+
+    /* Drag & Drop Zone Hover Animations */
+    @keyframes floatCloud {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+    #drop-zone {
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #drop-zone:hover {
+      border-color: rgba(245, 95, 36, 0.3) !important;
+      box-shadow: 0 12px 30px rgba(245, 95, 36, 0.05);
+    }
+    #drop-zone:hover .material-symbols-outlined {
+      animation: floatCloud 2.0s ease-in-out infinite;
+    }
+
+    /* Surgeon Cards Hover Animations */
+    .surgeon-card {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .surgeon-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    }
+
+    /* Checklist checkmark pop bouncy entrance */
+    @keyframes popIcon {
+      0% { transform: scale(0.7); opacity: 0; }
+      50% { transform: scale(1.3); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .text-green-500 {
+      animation: popIcon 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+    }
+
+    /* Ambient Background Glow */
+    @keyframes ambientGlow {
+      0%, 100% {
+        transform: translate(0, 0) scale(1);
+      }
+      33% {
+        transform: translate(60px, -45px) scale(1.15);
+      }
+      66% {
+        transform: translate(-45px, 55px) scale(0.9);
+      }
+    }
+    
+    .animate-ambient-glow {
+      animation: ambientGlow 22s ease-in-out infinite alternate;
+    }
+  </style>
+</head>
+<body class="font-body-md text-body-md antialiased relative">
+  <div class="subpage-root">
+    <!-- Ambient background glow behind content -->
+    <div class="pointer-events-none fixed top-1/4 left-1/4 -z-10 h-[600px] w-[600px] rounded-full bg-primary/5 opacity-50 blur-[150px] animate-ambient-glow"></div>
+
+    <!-- ── HEADER (shared pattern across all subpages) ───────────── -->
+    <header class="header header-subpage">
+      <div class="logo-container">
+        <a href="index.html" class="logo-link">
+          <img id="logo-img" src="/icons/logo.png" alt="Precision Medical Logo" class="logo-icon">
+        </a>
+      </div>
+      <nav class="nav-menu">
+        <a href="departments.html"    class="nav-link">Departments</a>
+        <a href="about-us.html"       class="nav-link">About Us</a>
+        <a href="our-surgeons.html"   class="nav-link">Our Surgeons</a>
+        <a href="second-opinion.html" class="nav-link active">Second Opinion</a>
+        <a href="contacts.html"       class="nav-link">Contacts</a>
+      </nav>
+    </header>
+
+    <!-- ── MAIN CONTENT ── -->
+    <main class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-xl">
+      
+      <!-- Primary View: Forms and upload -->
+      <div id="main-portal-view" class="transition-opacity duration-300">
+        
+        <!-- Hero Header -->
+        <section class="mb-xl scroll-reveal reveal-fade-up">
+          <h1 class="font-display-sm md:font-display-lg text-display-sm md:text-display-lg mb-4 uppercase">
+            Second Opinion Portal
+          </h1>
+          <p class="font-body-lg text-body-lg text-secondary max-w-4xl">
+            Upload your MRI/CT scan data and describe your clinical case. Our neurosurgical board will analyze the files and provide an official expert recommendation within 24-48 hours.
+          </p>
+        </section>
+
+        <!-- Step 1: Upload Scan Data -->
+        <section class="mb-xl border border-outline-variant p-lg md:p-xl rounded-2xl bg-white scroll-reveal reveal-fade-up">
+          <div class="flex items-center gap-sm mb-lg">
+            <span class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center font-code-data text-xs">1</span>
+            <h2 class="text-headline-md font-bold uppercase tracking-wide">Upload Diagnostic Scans</h2>
+          </div>
+          
+          <!-- Dropzone -->
+          <div id="drop-zone" class="w-full min-h-[220px] border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center p-xl cursor-pointer hover:border-primary transition-all duration-300 bg-surface-container-low">
+            <span class="material-symbols-outlined text-primary text-[48px] mb-sm">cloud_upload</span>
+            <p class="font-body-lg text-body-lg text-on-surface font-semibold mb-xs text-center">
+              Drag and drop your scan files here or <span class="text-primary underline">browse files</span>
+            </p>
+            <p class="font-code-data text-xs text-secondary text-center">
+              Supported formats: DICOM (.dcm, .zip), JPEG, PNG, PDF (Max file size: 500MB)
+            </p>
+            <input type="file" id="file-input" multiple class="hidden" accept=".zip,.dcm,.dicom,.jpg,.jpeg,.png,.pdf">
+          </div>
+
+          <!-- Upload list -->
+          <div id="upload-list" class="mt-lg flex flex-col gap-sm hidden">
+            <h4 class="font-label-caps text-label-caps text-secondary">Uploading Files:</h4>
+            <!-- Dynamic elements will append here -->
+          </div>
+        </section>
+
+        <!-- Step 2: Clinical Details -->
+        <section class="mb-xl border border-outline-variant p-lg md:p-xl rounded-2xl bg-white scroll-reveal reveal-fade-up">
+          <div class="flex items-center gap-sm mb-lg">
+            <span class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center font-code-data text-xs">2</span>
+            <h2 class="text-headline-md font-bold uppercase tracking-wide">Patient Case Profile</h2>
+          </div>
+          
+          <form id="case-form" class="grid grid-cols-1 md:grid-cols-2 gap-xl">
+            <!-- Patient Name -->
+            <div class="flex flex-col gap-xs">
+              <label for="patient-name" class="font-label-caps text-label-caps text-secondary uppercase">Full Patient Name *</label>
+              <input type="text" id="patient-name" required placeholder="John Doe" class="line-input py-sm font-body-md text-on-surface">
+            </div>
+
+            <!-- Patient Age -->
+            <div class="flex flex-col gap-xs">
+              <label for="patient-age" class="font-label-caps text-label-caps text-secondary uppercase">Patient Age *</label>
+              <input type="number" id="patient-age" required min="0" max="130" placeholder="42" class="line-input py-sm font-body-md text-on-surface">
+            </div>
+
+            <!-- Existing Diagnosis -->
+            <div class="flex flex-col gap-xs md:col-span-2">
+              <label for="patient-diagnosis" class="font-label-caps text-label-caps text-secondary uppercase">Current Diagnosis / Suspected Pathology</label>
+              <input type="text" id="patient-diagnosis" placeholder="e.g. Left temporal lobe meningioma" class="line-input py-sm font-body-md text-on-surface">
+            </div>
+
+            <!-- Case Summary -->
+            <div class="flex flex-col gap-xs md:col-span-2">
+              <label for="case-summary" class="font-label-caps text-label-caps text-secondary uppercase">Clinical History &amp; Main Symptoms *</label>
+              <textarea id="case-summary" required rows="4" placeholder="Describe symptoms, duration, current treatments, and state of patient..." class="line-input py-sm font-body-md text-on-surface resize-none"></textarea>
+            </div>
+
+            <!-- Specific Questions -->
+            <div class="flex flex-col gap-xs md:col-span-2">
+              <label for="case-questions" class="font-label-caps text-label-caps text-secondary uppercase">Key Questions for the Specialist</label>
+              <textarea id="case-questions" rows="3" placeholder="e.g. Is radical surgical resection possible? What are the risks to speech/motor functions?" class="line-input py-sm font-body-md text-on-surface resize-none"></textarea>
+            </div>
+          </form>
+        </section>
+
+        <!-- Step 3: Specialist Selection -->
+        <section class="mb-xl border border-outline-variant p-lg md:p-xl rounded-2xl bg-white scroll-reveal reveal-fade-up">
+          <div class="flex items-center gap-sm mb-lg">
+            <span class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center font-code-data text-xs">3</span>
+            <h2 class="text-headline-md font-bold uppercase tracking-wide">Target Specialist Selection</h2>
+          </div>
+          
+          <p class="font-body-md text-body-md text-secondary mb-lg">
+            Select a specific neurosurgeon to direct your second opinion to, or let our board automatically route it to the first available specialist in the matching department.
+          </p>
+
+          <!-- Cards Grid -->
+          <div id="surgeon-grid" class="reveal-stagger grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+            
+            <!-- Default Option -->
+            <div data-surgeon-id="any" class="surgeon-card border-2 border-primary p-lg rounded-xl cursor-pointer bg-white transition-all duration-300 relative flex flex-col justify-between min-h-[160px] scroll-reveal reveal-fade-up reveal-item">
+              <div>
+                <div class="flex justify-between items-start">
+                  <span class="font-label-caps text-label-caps text-primary uppercase block mb-xs">Recommended</span>
+                  <span class="material-symbols-outlined text-primary font-bold active-badge">check_circle</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md uppercase font-bold mb-sm">First Available Specialist</h3>
+                <p class="font-body-sm text-body-sm text-secondary leading-relaxed">
+                  Automatically route the case files to the specialist with the earliest opening matching the pathology.
+                </p>
+              </div>
+            </div>
+
+            <!-- Prof. Artem Morozov -->
+            <div data-surgeon-id="morozov" class="surgeon-card border border-outline-variant hover:border-primary p-lg rounded-xl cursor-pointer bg-white transition-all duration-300 flex items-center gap-lg scroll-reveal reveal-fade-up reveal-item">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcqbgvZXxFdPVUqAWjYnysowToTwzn4hT7am5gpB6E7KzbG_fKH-N37tlwraPsyo4ZMknxNSxkwKIcB1hPV_BWfk6lidNtti6Z35R_S_442tERuBQKqvzrt0DRx3mNk1aPcJRH_mmwffmKJOM3D5OJFUU4g2W3GjpCTtp1Ge0T5axNF38HuQznefd2OaqvD4Chc56vXHKCImzDV56jJ445oJkXYPAU6WXIiKrqyKsAxH4kPgPr-69oCA" alt="Prof. Artem Morozov" class="w-16 h-16 rounded-full object-cover border border-outline-variant flex-shrink-0">
+              <div>
+                <span class="font-label-caps text-label-caps text-secondary block mb-xs">NEURO-ONCOLOGY</span>
+                <h3 class="font-headline-md text-headline-md uppercase font-bold text-on-surface">Prof. Artem Morozov</h3>
+                <p class="font-body-sm text-body-sm text-secondary">20+ years of surgical experience</p>
+              </div>
+            </div>
+
+            <!-- Dr. Elena Vasilieva -->
+            <div data-surgeon-id="vasilieva" class="surgeon-card border border-outline-variant hover:border-primary p-lg rounded-xl cursor-pointer bg-white transition-all duration-300 flex items-center gap-lg scroll-reveal reveal-fade-up reveal-item">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY5js0qN5xFGyNvWR98UhguKyoxagoFL7S-gl1vSeHMqyKPqsbupHvgFp2zBsJgV8fplvqgOAAQZdUy1PTBYmIMxlzYhRBAFqTLdh1wtO3PRdJWxKjkUT-scTT66iJ57jvpE8F29-Md374BCzqo7OMFNaNU9BmT5J4tTrjs3_zjIqAzMbTVMNYN8OKf-L_0zoQjnCcHt2XVfta1tPRPZ4M1-QVJJgJmoSJYzWx1j6sETU_hWHb29AoKQ" alt="Dr. Elena Vasilieva" class="w-16 h-16 rounded-full object-cover border border-outline-variant flex-shrink-0">
+              <div>
+                <span class="font-label-caps text-label-caps text-secondary block mb-xs">VASCULAR</span>
+                <h3 class="font-headline-md text-headline-md uppercase font-bold text-on-surface">Dr. Elena Vasilieva</h3>
+                <p class="font-body-sm text-body-sm text-secondary">15+ years of surgical experience</p>
+              </div>
+            </div>
+
+            <!-- Dr. Mikhail Petrov -->
+            <div data-surgeon-id="petrov" class="surgeon-card border border-outline-variant hover:border-primary p-lg rounded-xl cursor-pointer bg-white transition-all duration-300 flex items-center gap-lg scroll-reveal reveal-fade-up reveal-item">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYUseDtxQArRPb_aVuiwM67Ft-tC8LpXmBRb9STEtQym96Day9mGdN3XWfS9HcYSsdu96Dy0D5PdTSxXKWv3JstG09417hpYekqRB8q1tXZb-MduV4H0mz1qce9mgST_OgNjARs12Ipjx2y9KHvfKuHpOrKWE6INmFhYi-TL1_HMrKvn-iTRff5YkwD2-0k1EkyO3-uzO9ZZr8Lkfn3cXlGCG4I9cADZW420YYiNjcnAwVoXv5shtK7g" alt="Dr. Mikhail Petrov" class="w-16 h-16 rounded-full object-cover border border-outline-variant flex-shrink-0">
+              <div>
+                <span class="font-label-caps text-label-caps text-secondary block mb-xs">SPINAL</span>
+                <h3 class="font-headline-md text-headline-md uppercase font-bold text-on-surface">Dr. Mikhail Petrov</h3>
+                <p class="font-body-sm text-body-sm text-secondary">12+ years of surgical experience</p>
+              </div>
+            </div>
+
+            <!-- Dr. Anna Sorokina -->
+            <div data-surgeon-id="sorokina" class="surgeon-card border border-outline-variant hover:border-primary p-lg rounded-xl cursor-pointer bg-white transition-all duration-300 flex items-center gap-lg scroll-reveal reveal-fade-up reveal-item">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF5l-8ZoSd16DtNvBIwPgOz2b_LKJTAo7B7NhSO4R2iTMxfxynJUBb7lU31-1JzAdIw58hL54LLEklbMjQxi3LZhqBy4GXMt4WwEWf7Tk_uPQQPegEWde88RNRMvY-uy6I1pOX7GEHLEPdn1Y3KqG0sy995_BkYVI_sD3Ay-uFhJ1rkV9UY-w70GY9RGmmR2VsgduLodZ9S57Mi3yHepOOjXRi12TJdUyWoy65JmvVM2DyQB5cTT8MRg" alt="Dr. Anna Sorokina" class="w-16 h-16 rounded-full object-cover border border-outline-variant flex-shrink-0">
+              <div>
+                <span class="font-label-caps text-label-caps text-secondary block mb-xs">PEDIATRIC</span>
+                <h3 class="font-headline-md text-headline-md uppercase font-bold text-on-surface">Dr. Anna Sorokina</h3>
+                <p class="font-body-sm text-body-sm text-secondary">10+ years of surgical experience</p>
+              </div>
+            </div>
+
+            <!-- Dr. Igor Kovalev -->
+            <div data-surgeon-id="kovalev" class="surgeon-card border border-outline-variant hover:border-primary p-lg rounded-xl cursor-pointer bg-white transition-all duration-300 flex items-center gap-lg scroll-reveal reveal-fade-up reveal-item">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRF0MOfSy7saUYvBIEAKU_JLY8vZfj568JgKweneSd9sg6YspyACOIvAxpIudcCTSDDN1WLQnGguVWJnbP-R8LvyMFN0JsKl49QR_tRvRz5q-pjm09JKvRUob8SJBnIueCP9fuOvjIeHBsiz1-ve2DftYssODlgb36wOWvBvUUxENK1yrObVtEhDLl3Sj3D7UG2GYshWquvzYDeGEubjwXKeFMM_L7vbMxP0UCNWWOZIKPJE7MOs7gMA" alt="Dr. Igor Kovalev" class="w-16 h-16 rounded-full object-cover border border-outline-variant flex-shrink-0">
+              <div>
+                <span class="font-label-caps text-label-caps text-secondary block mb-xs">FUNCTIONAL</span>
+                <h3 class="font-headline-md text-headline-md uppercase font-bold text-on-surface">Dr. Igor Kovalev</h3>
+                <p class="font-body-sm text-body-sm text-secondary">18+ years of surgical experience</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Terms and Consent & Submit -->
+        <section class="flex flex-col md:flex-row justify-between items-center gap-lg border-t border-outline-variant pt-xl mb-xl scroll-reveal reveal-fade-up">
+          <div class="flex items-start gap-sm max-w-2xl">
+            <input type="checkbox" id="privacy-check" class="mt-1 border-outline text-primary focus:ring-primary rounded">
+            <label for="privacy-check" class="font-body-sm text-body-sm text-secondary">
+              I consent to the secure transfer, storage, and processing of my medical history and diagnostic scans under medical confidentiality regulations, conforming to HIPAA and GDPR protocols.
+            </label>
+          </div>
+
+          <button id="submit-btn" class="bg-primary hover:bg-primary-container text-on-primary px-xl py-md rounded-xl font-label-caps text-label-caps transition-all active:opacity-80 disabled:opacity-50 flex items-center gap-sm">
+            SUBMIT CASE FILES <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </button>
+        </section>
+
+      </div><!-- /#main-portal-view -->
+
+      <!-- Processing State View (Hidden by default) -->
+      <div id="processing-view" class="hidden transition-opacity duration-300 flex flex-col items-center justify-center min-h-[500px] border border-outline-variant rounded-2xl bg-white p-xl max-w-3xl mx-auto my-xl text-center">
+        <div class="w-16 h-16 border-4 border-outline-variant border-t-primary rounded-full animate-spin mb-xl"></div>
+        <h2 class="font-headline-lg text-headline-lg uppercase font-bold mb-md">Processing Medical Records</h2>
+        
+        <!-- Log Checklist -->
+        <div class="w-full max-w-md mx-auto text-left flex flex-col gap-sm font-code-data text-body-sm border-t border-outline-variant pt-lg">
+          <div id="log-step-1" class="flex items-center gap-sm text-secondary transition-colors duration-300">
+            <span class="material-symbols-outlined text-[16px] text-secondary">pending</span>
+            <span>Analyzing scan file headers...</span>
+          </div>
+          <div id="log-step-2" class="flex items-center gap-sm text-secondary transition-colors duration-300">
+            <span class="material-symbols-outlined text-[16px] text-secondary">pending</span>
+            <span>Parsing DICOM slices and parameters...</span>
+          </div>
+          <div id="log-step-3" class="flex items-center gap-sm text-secondary transition-colors duration-300">
+            <span class="material-symbols-outlined text-[16px] text-secondary">pending</span>
+            <span>Encrypting clinical case profile...</span>
+          </div>
+          <div id="log-step-4" class="flex items-center gap-sm text-secondary transition-colors duration-300">
+            <span class="material-symbols-outlined text-[16px] text-secondary">pending</span>
+            <span>Registering case with surgical department...</span>
+          </div>
+        </div>
+      </div><!-- /#processing-view -->
+
+      <!-- Success State View (Hidden by default) -->
+      <div id="success-view" class="hidden transition-opacity duration-300 max-w-3xl mx-auto my-xl">
+        <div class="border border-outline-variant bg-white rounded-2xl p-xl shadow-lg flex flex-col items-center">
+          <span class="material-symbols-outlined text-primary text-[64px] mb-lg animate-bounce">check_circle</span>
+          <h2 class="font-headline-lg text-headline-lg uppercase font-bold text-center mb-xs">Opinion Request Submitted</h2>
+          <p class="font-body-md text-body-md text-secondary text-center max-w-md mb-lg">
+            Your case file has been verified, encrypted, and assigned to the surgical department database.
+          </p>
+
+          <!-- Ticket Container -->
+          <div class="w-full border border-outline bg-surface-container-low rounded-xl p-lg font-code-data text-body-sm flex flex-col gap-md relative overflow-hidden">
+            <!-- Decorative Barcode -->
+            <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-r from-transparent to-surface-container-high opacity-10 flex flex-col gap-1 py-md items-end">
+              <div class="h-full w-[2px] bg-on-surface"></div>
+              <div class="h-full w-[4px] bg-on-surface"></div>
+              <div class="h-full w-[1px] bg-on-surface"></div>
+              <div class="h-full w-[3px] bg-on-surface"></div>
+            </div>
+
+            <div class="flex justify-between border-b border-outline-variant pb-sm">
+              <span class="text-secondary font-label-caps text-xs uppercase">Precision Medical Second Opinion Ticket</span>
+              <span id="ticket-date" class="text-on-surface">2026-07-19 00:15</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-md pt-sm">
+              <div>
+                <p class="text-secondary font-label-caps text-xs">MEDICAL RECORD NO. (MRN)</p>
+                <p id="ticket-mrn" class="text-on-surface font-bold text-base">MRN-789324-P</p>
+              </div>
+              <div>
+                <p class="text-secondary font-label-caps text-xs">PATIENT NAME</p>
+                <p id="ticket-name" class="text-on-surface">John Doe</p>
+              </div>
+              <div>
+                <p class="text-secondary font-label-caps text-xs">TARGET SPECIALIST</p>
+                <p id="ticket-specialist" class="text-on-surface">First Available Specialist</p>
+              </div>
+              <div>
+                <p class="text-secondary font-label-caps text-xs">ATTACHED SCANS</p>
+                <p id="ticket-scans" class="text-on-surface">3 Files (DICOM)</p>
+              </div>
+              <div class="md:col-span-2 border-t border-outline-variant pt-md">
+                <p class="text-secondary font-label-caps text-xs">CONSULTATION GUARANTEE</p>
+                <p class="text-primary font-semibold">Our expert review report will be securely sent to your email within 24 hours.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-md mt-xl">
+            <a href="index.html" class="border border-on-surface hover:bg-on-surface hover:text-white px-xl py-sm rounded-xl font-label-caps text-label-caps transition-all decoration-none">
+              RETURN HOME
+            </a>
+            <a href="second-opinion.html" id="restart-btn" class="bg-primary hover:bg-primary-container text-on-primary px-xl py-sm rounded-xl font-label-caps text-label-caps transition-all decoration-none">
+              SUBMIT ANOTHER CASE
+            </a>
+          </div>
+        </div>
+      </div><!-- /#success-view -->
+
+    </main>
+
+    <!-- ── FOOTER (shared pattern across all subpages) ───────────── -->
+    <footer class="bg-surface-container w-full px-margin-desktop py-xl border-t border-outline-variant">
+      <div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-lg">
+        <div>
+          <div class="font-headline-md text-headline-md font-bold mb-sm uppercase">Precision Medical</div>
+          <div class="font-code-data text-code-data uppercase text-on-surface-variant">© 2026 NEUROSURGERY CLINIC. PRECISION IN PRACTICE.</div>
+        </div>
+        <div class="flex flex-wrap gap-lg">
+          <a class="font-code-data text-code-data uppercase text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">Privacy Protocol</a>
+          <a class="font-code-data text-code-data uppercase text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">Terms of Service</a>
+          <a class="font-code-data text-code-data uppercase text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">Patient Data Protection</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Shared page-transition JS -->
+  <script type="module" src="/main.js"></script>
+
+  <!-- Interactive script logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Elements
+      const dropZone = document.getElementById('drop-zone');
+      const fileInput = document.getElementById('file-input');
+      const uploadList = document.getElementById('upload-list');
+      const submitBtn = document.getElementById('submit-btn');
+      const privacyCheck = document.getElementById('privacy-check');
+      const caseForm = document.getElementById('case-form');
+      const surgeonGrid = document.getElementById('surgeon-grid');
+      
+      const mainView = document.getElementById('main-portal-view');
+      const processingView = document.getElementById('processing-view');
+      const successView = document.getElementById('success-view');
+
+      // State
+      let uploadedFiles = [];
+      let selectedSurgeon = {
+        id: 'any',
+        name: 'First Available Specialist'
+      };
+
+      // ── DRAG & DROP LOGIC ──
+      dropZone.addEventListener('click', () => fileInput.click());
+
+      dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('drag-over');
+      });
+
+      dropZone.addEventListener('dragleave', () => {
+        dropZone.classList.remove('drag-over');
+      });
+
+      dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('drag-over');
+        if (e.dataTransfer.files.length > 0) {
+          handleFiles(e.dataTransfer.files);
+        }
+      });
+
+      fileInput.addEventListener('change', () => {
+        if (fileInput.files.length > 0) {
+          handleFiles(fileInput.files);
+        }
+      });
+
+      function handleFiles(files) {
+        uploadList.classList.remove('hidden');
+        
+        Array.from(files).forEach(file => {
+          const fileId = 'file-' + Math.random().toString(36).substr(2, 9);
+          uploadedFiles.push({ id: fileId, name: file.name, size: file.size });
+
+          // File List UI item
+          const fileItem = document.createElement('div');
+          fileItem.id = fileId;
+          fileItem.className = 'border border-outline-variant p-sm flex items-center justify-between rounded bg-surface-container-low font-code-data text-xs';
+          
+          const sizeInMB = (file.size / (1024 * 1024)).toFixed(2) + ' MB';
+          
+          fileItem.innerHTML = `
+            <div class="flex items-center gap-sm flex-1 min-w-0">
+              <span class="material-symbols-outlined text-primary text-[20px]">description</span>
+              <div class="flex-1 min-w-0">
+                <p class="truncate font-semibold text-on-surface">${file.name}</p>
+                <div class="w-full bg-outline-variant h-[3px] rounded mt-1 overflow-hidden">
+                  <div class="bg-primary h-full w-0 progress-bar transition-all duration-1000 ease-out"></div>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-lg ml-lg flex-shrink-0">
+              <span class="text-secondary font-medium">${sizeInMB}</span>
+              <span class="material-symbols-outlined text-[18px] text-secondary status-icon">pending</span>
+            </div>
+          `;
+          
+          uploadList.appendChild(fileItem);
+
+          // Animate upload progress bar simulation
+          setTimeout(() => {
+            const bar = fileItem.querySelector('.progress-bar');
+            const icon = fileItem.querySelector('.status-icon');
+            if (bar) bar.style.width = '100%';
+            setTimeout(() => {
+              if (icon) {
+                icon.textContent = 'check_circle';
+                icon.classList.remove('text-secondary');
+                icon.classList.add('text-green-500');
+              }
+            }, 1000);
+          }, 50);
+        });
+
+        validateSubmitState();
+      }
+
+      // ── SURGEON SELECTION GRID ──
+      const cards = surgeonGrid.querySelectorAll('.surgeon-card');
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          // Clear active classes
+          cards.forEach(c => {
+            c.classList.remove('border-2', 'border-primary');
+            c.classList.add('border', 'border-outline-variant');
+            const check = c.querySelector('.active-badge');
+            if (check) check.remove();
+          });
+
+          // Add active state to clicked
+          card.classList.remove('border', 'border-outline-variant');
+          card.classList.add('border-2', 'border-primary');
+          
+          const surgeonName = card.querySelector('h3').textContent;
+          const surgeonId = card.getAttribute('data-surgeon-id');
+          selectedSurgeon = { id: surgeonId, name: surgeonName };
+
+          // Append check icon to top right
+          const headerElement = card.querySelector('.flex') || card;
+          if (headerElement) {
+            const check = document.createElement('span');
+            check.className = 'material-symbols-outlined text-primary font-bold active-badge';
+            check.textContent = 'check_circle';
+            headerElement.appendChild(check);
+          }
+        });
+      });
+
+      // ── FORM & PRIVACY VALIDATION ──
+      privacyCheck.addEventListener('change', validateSubmitState);
+      caseForm.addEventListener('input', validateSubmitState);
+
+      function validateSubmitState() {
+        const isPrivacyChecked = privacyCheck.checked;
+        const isFormValid = caseForm.checkValidity();
+        const hasFiles = uploadedFiles.length > 0;
+        
+        submitBtn.disabled = !(isPrivacyChecked && isFormValid && hasFiles);
+      }
+
+      // Initial validation trigger
+      validateSubmitState();
+
+      // ── SUBMIT CLI PROCESS AND TICKETING ──
+      submitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Final sanity check
+        if (submitBtn.disabled) return;
+
+        // Show sending loader
+        mainView.classList.add('hidden');
+        processingView.classList.remove('hidden');
+
+        // Checklist loader steps
+        const step1 = document.getElementById('log-step-1');
+        const step2 = document.getElementById('log-step-2');
+        const step3 = document.getElementById('log-step-3');
+        const step4 = document.getElementById('log-step-4');
+
+        function activateStep(el, nextFn) {
+          setTimeout(() => {
+            const icon = el.querySelector('.material-symbols-outlined');
+            icon.textContent = 'check_circle';
+            icon.classList.remove('text-secondary');
+            icon.classList.add('text-green-500');
+            el.classList.remove('text-secondary');
+            el.classList.add('text-on-surface', 'font-semibold');
+            if (nextFn) nextFn();
+          }, 800);
+        }
+
+        // Run steps sequence
+        activateStep(step1, () => {
+          activateStep(step2, () => {
+            activateStep(step3, () => {
+              activateStep(step4, () => {
+                setTimeout(showSuccessScreen, 700);
+              });
+            });
+          });
+        });
+      });
+
+      function showSuccessScreen() {
+        processingView.classList.add('hidden');
+        successView.classList.remove('hidden');
+
+        // Fill Ticket Details
+        const nameVal = document.getElementById('patient-name').value;
+        const ticketName = document.getElementById('ticket-name');
+        ticketName.textContent = nameVal;
+
+        const ticketSpecialist = document.getElementById('ticket-specialist');
+        ticketSpecialist.textContent = selectedSurgeon.name;
+
+        const ticketScans = document.getElementById('ticket-scans');
+        ticketScans.textContent = `${uploadedFiles.length} File(s) uploaded`;
+
+        // Generate Ticket MRN & Date
+        const mrnVal = 'MRN-' + Math.floor(100000 + Math.random() * 900000) + '-' + selectedSurgeon.id.charAt(0).toUpperCase();
+        document.getElementById('ticket-mrn').textContent = mrnVal;
+
+        const now = new Date();
+        const dateStr = now.getFullYear() + '-' + 
+                        String(now.getMonth() + 1).padStart(2, '0') + '-' + 
+                        String(now.getDate()).padStart(2, '0') + ' ' + 
+                        String(now.getHours()).padStart(2, '0') + ':' + 
+                        String(now.getMinutes()).padStart(2, '0');
+        document.getElementById('ticket-date').textContent = dateStr;
+      }
+
+      // ── RESET AND RESUBMIT ──
+      document.getElementById('restart-btn').addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Reset state
+        caseForm.reset();
+        uploadedFiles = [];
+        uploadList.innerHTML = '<h4 class="font-label-caps text-label-caps text-secondary">Uploading Files:</h4>';
+        uploadList.classList.add('hidden');
+        privacyCheck.checked = false;
+
+        // Reset surgeon grid selection to default
+        cards.forEach(c => {
+          c.classList.remove('border-2', 'border-primary');
+          c.classList.add('border', 'border-outline-variant');
+          const check = c.querySelector('.active-badge');
+          if (check) check.remove();
+        });
+        const defaultCard = surgeonGrid.querySelector('[data-surgeon-id="any"]');
+        defaultCard.classList.remove('border', 'border-outline-variant');
+        defaultCard.classList.add('border-2', 'border-primary');
+        const defaultCheck = document.createElement('span');
+        defaultCheck.className = 'material-symbols-outlined text-primary font-bold active-badge';
+        defaultCheck.textContent = 'check_circle';
+        defaultCard.querySelector('.flex').appendChild(defaultCheck);
+        selectedSurgeon = { id: 'any', name: 'First Available Specialist' };
+
+        // Hide success view, show main form view
+        successView.classList.add('hidden');
+        mainView.classList.remove('hidden');
+        
+        // Reset checklist state icons
+        const steps = [
+          document.getElementById('log-step-1'),
+          document.getElementById('log-step-2'),
+          document.getElementById('log-step-3'),
+          document.getElementById('log-step-4')
+        ];
+        steps.forEach(step => {
+          const icon = step.querySelector('.material-symbols-outlined');
+          icon.textContent = 'pending';
+          icon.className = 'material-symbols-outlined text-[16px] text-secondary';
+          step.className = 'flex items-center gap-sm text-secondary transition-colors duration-300';
+        });
+
+        validateSubmitState();
+      });
+
+      // Intersection Observer for scroll animations
+      const staggerContainers = document.querySelectorAll('.reveal-stagger');
+      staggerContainers.forEach(container => {
+          const items = container.querySelectorAll('.reveal-item');
+          items.forEach((item, idx) => {
+              item.style.transitionDelay = `${idx * 0.12}s`;
+          });
+      });
+
+      const revealOptions = {
+          threshold: 0.05,
+          rootMargin: '0px 0px -60px 0px'
+      };
+
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add('revealed');
+                  observer.unobserve(entry.target);
+              }
+          });
+      }, revealOptions);
+
+      const elementsToReveal = document.querySelectorAll('.scroll-reveal');
+      elementsToReveal.forEach(el => revealObserver.observe(el));
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consult a Neurosurgeon — Precision Medical</title>
+  <meta name="description" content="Request a consultation with a world-class neurosurgeon at Precision Medical. Select your specialist and describe your case.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Serif:wght@600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+  <!-- Shared global styles (header, nav, page transitions, base tokens) -->
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- Tailwind CDN & Config (matching departments.html pattern) -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-bright": "#fcf9f8",
+            "surface-container-high": "#eae7e7",
+            "surface-container-highest": "#e4e2e2",
+            "surface-variant": "#e4e2e2",
+            "surface-container": "#f0eded",
+            "surface-container-low": "#f6f3f3",
+            "surface-container-lowest": "#ffffff",
+            "surface-dim": "#dcd9d9",
+            "on-background": "#1b1c1c",
+            "on-surface": "#1b1c1c",
+            "on-surface-variant": "#5a4139",
+            "on-tertiary-container": "#fcfcfc",
+            "on-primary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "on-error": "#ffffff",
+            "inverse-surface": "#303030",
+            "inverse-on-surface": "#f3f0f0",
+            "outline": "#8e7067",
+            "outline-variant": "#e2bfb4",
+            "tertiary": "#5b5c5c",
+            "secondary": "#625d5d",
+            "secondary-container": "#e5dedd",
+            "on-secondary-container": "#666161",
+            "tertiary-container": "#737575",
+            "tertiary-fixed": "#e2e2e2",
+            "tertiary-fixed-dim": "#c6c6c7",
+            "on-tertiary-fixed": "#1a1c1c",
+            "on-tertiary-fixed-variant": "#454747",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+            "surface": "#fcf9f8",
+            "surface-tint": "#ab3600",
+            "primary": "#a73400",
+            "primary-container": "#d04504",
+            "on-primary-container": "#fffbff",
+            "on-primary-fixed": "#390c00",
+            "on-primary-fixed-variant": "#822700",
+            "primary-fixed": "#ffdbcf",
+            "primary-fixed-dim": "#ffb59c",
+            "inverse-primary": "#ffb59c",
+            "background": "#fcf9f8",
+            "secondary-fixed": "#e8e1e0",
+            "secondary-fixed-dim": "#ccc5c4",
+            "on-secondary-fixed": "#1e1b1b",
+            "on-secondary-fixed-variant": "#4a4646"
+          },
+          borderRadius: {
+            DEFAULT: "12px",
+            sm: "8px",
+            lg: "20px",
+            xl: "28px",
+            "2xl": "40px",
+            full: "9999px"
+          },
+          spacing: {
+            lg: "24px",
+            xs: "4px",
+            gutter: "24px",
+            xl: "40px",
+            "margin-desktop": "64px",
+            sm: "8px",
+            unit: "4px",
+            "margin-mobile": "16px",
+            md: "16px"
+          },
+          fontFamily: {
+            "code-data": ["JetBrains Mono"],
+            "body-lg": ["Inter"],
+            "label-caps": ["JetBrains Mono"],
+            "headline-lg": ["JetBrains Mono"],
+            "body-sm": ["Inter"],
+            "headline-lg-mobile": ["JetBrains Mono"],
+            "display-lg": ["JetBrains Mono"],
+            "display-sm": ["JetBrains Mono"],
+            "headline-md": ["JetBrains Mono"],
+            "body-md": ["Inter"]
+          },
+          fontSize: {
+            "code-data": ["14px", { lineHeight: "1.4", fontWeight: "400" }],
+            "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+            "label-caps": ["12px", { lineHeight: "1.4", letterSpacing: "0.05em", fontWeight: "500" }],
+            "headline-lg": ["24px", { lineHeight: "1.2", fontWeight: "700" }],
+            "body-sm": ["14px", { lineHeight: "1.5", fontWeight: "400" }],
+            "headline-lg-mobile": ["20px", { lineHeight: "1.2", fontWeight: "700" }],
+            "display-lg": ["64px", { lineHeight: "1.0", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "display-sm": ["36px", { lineHeight: "1.1", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "headline-md": ["18px", { lineHeight: "1.2", fontWeight: "700" }],
+            "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }]
+          }
+        }
+      }
+    }
+  </script>
+
+  <script>document.documentElement.classList.add('js-enabled');</script>
+
+  <style>
+    html, body {
+      overflow: auto !important;
+      height: auto !important;
+    }
+    #booking-root {
+      width: 100%;
+    }
+    #booking-root:empty::before {
+      content: '';
+      display: block;
+      height: 80px;
+    }
+    h1, h2 {
+      font-family: 'Tiposka', 'JetBrains Mono', 'IBM Plex Serif', monospace !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="subpage-root">
+
+    <header class="header header-subpage">
+      <div class="logo-container">
+        <a href="index.html" class="logo-link">
+          <img id="logo-img" src="/icons/logo.png" alt="Precision Medical Logo" class="logo-icon">
+        </a>
+      </div>
+      <nav class="nav-menu">
+        <a href="departments.html"    class="nav-link">Departments</a>
+        <a href="about-us.html"       class="nav-link">About Us</a>
+        <a href="our-surgeons.html"   class="nav-link">Our Surgeons</a>
+        <a href="second-opinion.html" class="nav-link">Second Opinion</a>
+        <a href="contacts.html"       class="nav-link">Contacts</a>
+      </nav>
+    </header>
+
+    <main>
+      <div id="booking-root"></div>
+
+      <!-- ── FOOTER ── -->
+      <footer class="bg-surface-container w-full px-margin-desktop py-xl hairline-t">
+        <div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-lg">
+          <div>
+            <div class="font-headline-md text-headline-md font-bold mb-sm">PRECISION MEDICAL</div>
+            <div class="font-code-data text-code-data uppercase text-on-surface-variant">© 2026 NEUROSURGERY CLINIC. PRECISION IN PRACTICE.</div>
+          </div>
+          <div class="flex flex-wrap gap-lg">
+            <a class="font-code-data text-code-data uppercase text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">Privacy Protocol</a>
+            <a class="font-code-data text-code-data uppercase text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">Terms of Service</a>
+            <a class="font-code-data text-code-data uppercase text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">Patient Data Protection</a>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+  </div>
+
+  <script type="module" src="/main.js"></script>
+  <script type="module" src="/booking.jsx"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+{
+  "name": "projects/12282722675370129022",
+  "projectId": "12282722675370129022",
+  "title": "Precision Medical",
+  "visibility": "PRIVATE",
+  "createTime": "2026-07-12T15:04:34.650565Z",
+  "updateTime": "2026-07-18T12:48:52.000000Z",
+  "lastSyncTime": "2026-07-18T12:48:52.000000Z",
+  "projectType": "PROJECT_DESIGN",
+  "origin": "STITCH",
+  "deviceType": "DESKTOP",
+  "designTheme": {
+    "colorMode": "LIGHT",
+    "font": "IBM_PLEX_SERIF",
+    "customColor": "#f55f24",
+    "headlineFont": "IBM_PLEX_SERIF",
+    "bodyFont": "HANKEN_GROTESK",
+    "labelFont": "JETBRAINS_MONO",
+    "roundness": "SHARP"
+  },
+  "screens": {
+    "about-us": {
+      "id": "51741bf03db345f6b04bd415375ee4be",
+      "sourceScreen": "projects/12282722675370129022/screens/51741bf03db345f6b04bd415375ee4be",
+      "x": 0,
+      "y": 0,
+      "width": 2560,
+      "height": 6648,
+      "title": "About Us | Precision Medical"
+    },
+    "departments": {
+      "id": "76bda29b66f242a38dedb15caedd4620",
+      "sourceScreen": "projects/12282722675370129022/screens/76bda29b66f242a38dedb15caedd4620",
+      "x": 1871,
+      "y": -89,
+      "width": 2560,
+      "height": 8028,
+      "title": "Departments (Updated Branding) | Neurosurgery Clinic"
+    },
+    "our-surgeons": {
+      "id": "b0acafbdf6f34908bd3f45b6b2d0ce9f",
+      "sourceScreen": "projects/12282722675370129022/screens/b0acafbdf6f34908bd3f45b6b2d0ce9f",
+      "x": 0,
+      "y": 0,
+      "width": 2560,
+      "height": 5028,
+      "title": "Our Surgeons | Precision Medical"
+    },
+    "contacts": {
+      "id": "18bf1e9cdc2f4317b8458218e599b4c9",
+      "sourceScreen": "projects/12282722675370129022/screens/18bf1e9cdc2f4317b8458218e599b4c9",
+      "x": 0,
+      "y": 11686,
+      "width": 1280,
+      "height": 1893,
+      "title": "Contacts | Precision Medical"
+    }
+  }
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Precision Medical - Hero</title>
+  <meta name="description" content="Precision Medical - High-precision neurological surgeries and neurosurgery consultation.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Serif:wght@600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- JS check for page transitions -->
+  <script>
+    document.documentElement.classList.add('js-enabled');
+  </script>
+
+  <!-- Spline Viewer Library -->
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.0/build/spline-viewer.js"></script>
+</head>
+<body>
+  <!-- Root: 1920×1080 hero canvas -->
+  <div class="hero-root">
+
+    <!-- ── LAYER 0: HEADER ─────────────────────────────────── -->
+    <header class="header">
+      <div class="logo-container">
+        <a href="index.html" class="logo-link">
+          <img id="logo-img" src="/icons/logo.png" alt="Precision Medical Logo" class="logo-icon">
+        </a>
+      </div>
+      <nav class="nav-menu">
+        <a href="departments.html" class="nav-link">Departments</a>
+        <a href="about-us.html"    class="nav-link">About Us</a>
+        <a href="our-surgeons.html" class="nav-link">Our Surgeons</a>
+        <a href="second-opinion.html" class="nav-link">Second Opinion</a>
+        <a href="contacts.html"   class="nav-link">Contacts</a>
+      </nav>
+      <div class="header-action">
+        <a href="consult.html" id="consult-btn" class="btn-consult">Consult a Neurosurgeon</a>
+      </div>
+    </header>
+
+    <!-- ── LAYER 1: PRECISION TEXT (background, z-0) ──────── -->
+    <div class="precision-layer" aria-hidden="true">
+      <h1 class="hero-title"><span>P</span><span>R</span><span>E</span><span>C</span><span>I</span><span>S</span><span>I</span><span>O</span><span>N</span></h1>
+      <span class="hero-subtitle">in every micron</span>
+    </div>
+
+    <!-- ── LAYER 2: 3D BRAIN (center, z-10) ──────────────── -->
+    <div class="brain-layer">
+      <div class="spline-placeholder">
+        <div class="glow-sphere"></div>
+        <p class="placeholder-text">Loading 3D Brain Model...</p>
+      </div>
+      <iframe
+        class="spline-model"
+        src="/brain.html"
+        onload="const p = document.querySelector('.spline-placeholder'); if (p) { p.style.transition = 'opacity 0.5s ease'; p.style.opacity = '0'; setTimeout(() => p.style.display = 'none', 500); }"
+        style="border: none; width: 100%; height: 100%;">
+      </iframe>
+    </div>
+
+    <!-- ── LAYER 3: LEFT METRICS PANEL (z-20) ────────────── -->
+    <aside class="stats-panel">
+      <!-- Card 1: 1,500+ -->
+      <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <img src="/icons/1,500+.webp" alt="Icon 1500+" class="stat-icon">
+        </div>
+        <div class="stat-info">
+          <h3 class="stat-value">1,500+</h3>
+          <p class="stat-desc">Successful brain surgeries performed annually</p>
+        </div>
+      </div>
+
+      <!-- Card 2: 98.7% -->
+      <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <img src="/icons/98.7%25.webp" alt="Icon 98.7%" class="stat-icon">
+        </div>
+        <div class="stat-info">
+          <h3 class="stat-value">98.7%</h3>
+          <p class="stat-desc">Neurological function preservation and recovery rate</p>
+        </div>
+      </div>
+
+      <!-- Card 3: Intraoperative MRI / CT -->
+      <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <img src="/icons/Intraoperative MRI  CT.webp" alt="Icon MRI CT" class="stat-icon">
+        </div>
+        <div class="stat-info">
+          <h3 class="stat-value">Intraoperative MRI / CT</h3>
+          <p class="stat-desc">Real-time imaging to ensure radical tumor resection during surgery</p>
+        </div>
+      </div>
+
+      <!-- Card 4: Fast-Track Surgery -->
+      <div class="stat-card">
+        <div class="stat-icon-wrapper">
+          <img src="/icons/Fast-Track Surgery.webp" alt="Icon Fast-Track" class="stat-icon">
+        </div>
+        <div class="stat-info">
+          <h3 class="stat-value">Fast-Track Surgery</h3>
+          <p class="stat-desc">Minimally invasive techniques allowing patients to walk 1–2 days post-op</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── LAYER 4: BOTTOM-RIGHT – RATING + UPLOAD (z-20) ── -->
+    <!-- Rating block: 297px wide, 130px from bottom margin -->
+    <div class="rating-block">
+      <div class="avatar-stack">
+        <img src="/photos/photo1.webp" alt="Patient 1" class="avatar-img">
+        <img src="/photos/photo2.webp" alt="Patient 2" class="avatar-img">
+        <img src="/photos/photo3.webp" alt="Patient 3" class="avatar-img">
+        <img src="/photos/photo4.webp" alt="Patient 4" class="avatar-img">
+      </div>
+      <div class="rating-info">
+        <div class="rating-stars">
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="rating-score">4.9 rating</span>
+        </div>
+        <p class="rating-text">We have the trust of about 5,000 people</p>
+      </div>
+    </div>
+
+    <!-- Upload Scans: 63px circle button, aligned to right margin -->
+    <a href="second-opinion.html" id="upload-scans-btn" class="upload-action-btn">
+      <span class="upload-text">Get a Second Opinion<br>(Upload Scans)</span>
+      <div class="upload-circle-btn">
+        <img src="/icons/Get a Second Opinion &#8232;(Upload Scans).webp" alt="Upload Scans" class="upload-icon-img">
+      </div>
+    </a>
+
+  </div><!-- /.hero-root -->
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>

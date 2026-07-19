@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Surgeons — Precision Medical</title>
+  <meta name="description" content="Meet the world-class multidisciplinary neurosurgical team at Precision Medical. Each surgeon brings international fellowship training and thousands of successful operations.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Serif:wght@600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+  <!-- Shared global styles (header, nav, page transitions, base tokens) -->
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- Tailwind CDN & Config (matching departments.html pattern) -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-bright": "#fcf9f8",
+            "surface-container-high": "#eae7e7",
+            "surface-container-highest": "#e4e2e2",
+            "surface-variant": "#e4e2e2",
+            "surface-container": "#f0eded",
+            "surface-container-low": "#f6f3f3",
+            "surface-container-lowest": "#ffffff",
+            "surface-dim": "#dcd9d9",
+            "on-background": "#1b1c1c",
+            "on-surface": "#1b1c1c",
+            "on-surface-variant": "#5a4139",
+            "on-tertiary-container": "#fcfcfc",
+            "on-primary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "on-error": "#ffffff",
+            "inverse-surface": "#303030",
+            "inverse-on-surface": "#f3f0f0",
+            "outline": "#8e7067",
+            "outline-variant": "#e2bfb4",
+            "tertiary": "#5b5c5c",
+            "secondary": "#625d5d",
+            "secondary-container": "#e5dedd",
+            "on-secondary-container": "#666161",
+            "tertiary-container": "#737575",
+            "tertiary-fixed": "#e2e2e2",
+            "tertiary-fixed-dim": "#c6c6c7",
+            "on-tertiary-fixed": "#1a1c1c",
+            "on-tertiary-fixed-variant": "#454747",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+            "surface": "#fcf9f8",
+            "surface-tint": "#ab3600",
+            "primary": "#a73400",
+            "primary-container": "#d04504",
+            "on-primary-container": "#fffbff",
+            "on-primary-fixed": "#390c00",
+            "on-primary-fixed-variant": "#822700",
+            "primary-fixed": "#ffdbcf",
+            "primary-fixed-dim": "#ffb59c",
+            "inverse-primary": "#ffb59c",
+            "background": "#fcf9f8",
+            "secondary-fixed": "#e8e1e0",
+            "secondary-fixed-dim": "#ccc5c4",
+            "on-secondary-fixed": "#1e1b1b",
+            "on-secondary-fixed-variant": "#4a4646"
+          },
+          borderRadius: {
+            DEFAULT: "12px",
+            sm: "8px",
+            lg: "20px",
+            xl: "28px",
+            "2xl": "40px",
+            full: "9999px"
+          },
+          spacing: {
+            lg: "24px",
+            xs: "4px",
+            gutter: "24px",
+            xl: "40px",
+            "margin-desktop": "64px",
+            sm: "8px",
+            unit: "4px",
+            "margin-mobile": "16px",
+            md: "16px"
+          },
+          fontFamily: {
+            "code-data": ["JetBrains Mono"],
+            "body-lg": ["Inter"],
+            "label-caps": ["JetBrains Mono"],
+            "headline-lg": ["JetBrains Mono"],
+            "body-sm": ["Inter"],
+            "headline-lg-mobile": ["JetBrains Mono"],
+            "display-lg": ["JetBrains Mono"],
+            "display-sm": ["JetBrains Mono"],
+            "headline-md": ["JetBrains Mono"],
+            "body-md": ["Inter"]
+          },
+          fontSize: {
+            "code-data": ["14px", { lineHeight: "1.4", fontWeight: "400" }],
+            "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+            "label-caps": ["12px", { lineHeight: "1.4", letterSpacing: "0.05em", fontWeight: "500" }],
+            "headline-lg": ["24px", { lineHeight: "1.2", fontWeight: "700" }],
+            "body-sm": ["14px", { lineHeight: "1.5", fontWeight: "400" }],
+            "headline-lg-mobile": ["20px", { lineHeight: "1.2", fontWeight: "700" }],
+            "display-lg": ["64px", { lineHeight: "1.0", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "display-sm": ["36px", { lineHeight: "1.1", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "headline-md": ["18px", { lineHeight: "1.2", fontWeight: "700" }],
+            "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }]
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- JS page-transition detection -->
+  <script>document.documentElement.classList.add('js-enabled');</script>
+  <style>
+    /* Prevent scrolling on this subpage — should fit viewport height exactly */
+    html, body {
+      overflow: hidden !important;
+      height: 100vh !important;
+    }
+    /* Ensure the surgeons-root fills available space */
+    #surgeons-root {
+      width: 100%;
+    }
+    /* Prevent FOUC before React hydrates */
+    #surgeons-root:empty::before {
+      content: '';
+      display: block;
+      height: 80px;
+    }
+    /* Enforce Tiposka for display headings only */
+    h1, h2 {
+      font-family: 'Tiposka', 'JetBrains Mono', 'IBM Plex Serif', monospace !important;
+    }
+    /* Material Symbols */
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body>
+  <div class="subpage-root">
+
+    <!-- ── HEADER (shared pattern across all subpages) ───────────── -->
+    <header class="header header-subpage">
+      <div class="logo-container">
+        <a href="index.html" class="logo-link">
+          <img id="logo-img" src="/icons/logo.png" alt="Precision Medical Logo" class="logo-icon">
+        </a>
+      </div>
+      <nav class="nav-menu">
+        <a href="departments.html"    class="nav-link">Departments</a>
+        <a href="about-us.html"       class="nav-link">About Us</a>
+        <a href="our-surgeons.html"   class="nav-link active">Our Surgeons</a>
+        <a href="second-opinion.html" class="nav-link">Second Opinion</a>
+        <a href="contacts.html"       class="nav-link">Contacts</a>
+      </nav>
+    </header>
+
+    <!-- ── MAIN: React mount point ──────────────────────────────── -->
+    <main class="h-[calc(100vh-80px)] w-full overflow-hidden flex flex-col">
+      <div id="surgeons-root" class="w-full flex-1 min-h-0"></div>
+    </main>
+
+  </div>
+
+  <!-- Shared page-transition JS -->
+  <script type="module" src="/main.js"></script>
+  <!-- React surgeons entry point -->
+  <script type="module" src="/our-surgeons.jsx"></script>
+</body>
+</html>

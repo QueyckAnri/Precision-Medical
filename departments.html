@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Departments - Precision Medical</title>
+  <meta name="description" content="Precision Medical - High-precision neurological surgeries and neurosurgery consultation.">
+
+  <!-- Style Sheet -->
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- JS check for page transitions -->
+  <script>
+    document.documentElement.classList.add('js-enabled');
+  </script>
+
+  <!-- Google Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&amp;family=IBM+Plex+Serif:wght@600&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CDN & Config -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                "colors": {
+                    "surface-variant": "#e2e2e2",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#89ceff",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#e8e1e0",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#f9f9f9",
+                    "surface-container-high": "#e8e8e8",
+                    "on-tertiary-fixed-variant": "#004c6e",
+                    "surface-container-highest": "#e2e2e2",
+                    "outline": "#8e7067",
+                    "tertiary": "#00628d",
+                    "secondary": "#625d5d",
+                    "surface-container-low": "#f3f3f3",
+                    "outline-variant": "#e2bfb4",
+                    "inverse-surface": "#2f3131",
+                    "on-secondary-container": "#666161",
+                    "on-tertiary-fixed": "#001e2f",
+                    "secondary-fixed-dim": "#ccc5c4",
+                    "on-surface-variant": "#5a4139",
+                    "surface-dim": "#dadada",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#390c00",
+                    "surface-container": "#eeeeee",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#822700",
+                    "on-surface": "#1a1c1c",
+                    "primary-container": "#d04504",
+                    "surface": "#f9f9f9",
+                    "primary-fixed-dim": "#ffb59c",
+                    "on-background": "#1a1c1c",
+                    "inverse-on-surface": "#f1f1f1",
+                    "inverse-primary": "#ffb59c",
+                    "on-secondary-fixed": "#1e1b1b",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#4a4646",
+                    "secondary-container": "#e5dedd",
+                    "primary": "#F55F24", /* Match color accent */
+                    "error": "#ba1a1a",
+                    "background": "#f9f9f9",
+                    "on-tertiary-container": "#fcfcff",
+                    "on-primary-container": "#fffbff",
+                    "tertiary-container": "#007cb2",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#ab3600",
+                    "primary-fixed": "#ffdbcf",
+                    "tertiary-fixed": "#c9e6ff"
+                },
+                "borderRadius": {
+                    "DEFAULT": "0.75rem",
+                    "lg": "1rem",
+                    "xl": "1.25rem",
+                    "full": "9999px"
+                },
+                "spacing": {
+                    "grid-column-count": "12",
+                    "grid-gutter": "24px",
+                    "element-gap": "24px",
+                    "section-gap": "120px",
+                    "canvas-margin": "50px"
+                },
+                "fontFamily": {
+                    "body-lg": ["HelveticaNeueCyr", "Hanken Grotesk", "sans-serif"],
+                    "label-mono": ["HelveticaNeueCyr", "JetBrains Mono", "monospace"],
+                    "headline-lg": ["Tiposka", "IBM Plex Serif", "serif"],
+                    "headline-lg-mobile": ["Tiposka", "IBM Plex Serif", "serif"],
+                    "display-xl": ["Tiposka", "IBM Plex Serif", "serif"],
+                    "body-md": ["HelveticaNeueCyr", "Hanken Grotesk", "sans-serif"],
+                    "caption": ["HelveticaNeueCyr", "Hanken Grotesk", "sans-serif"],
+                    "tiposka": ["Tiposka", "serif"],
+                    "helvetica": ["HelveticaNeueCyr", "sans-serif"]
+                },
+                "fontSize": {
+                    "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                    "label-mono": ["16px", { "lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                    "headline-lg": ["40px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                    "headline-lg-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                    "display-xl": ["120px", { "lineHeight": "96px", "letterSpacing": "-0.04em", "fontWeight": "600" }],
+                    "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0px", "fontWeight": "400" }],
+                    "caption": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }]
+                }
+            }
+        }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    
+    /* Tab panes styling */
+    .tab-pane {
+        display: none !important;
+    }
+    .tab-pane.active {
+        display: flex !important;
+        animation: paneEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    
+    @keyframes paneEntrance {
+        from {
+            opacity: 0;
+            transform: translateY(24px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Enforce Tiposka for all headings globally */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Tiposka', 'IBM Plex Serif', serif !important;
+    }
+    
+    /* Override top margin for page content under fixed subpage header */
+    .departments-main {
+        padding-top: 100px; /* Space for the 64px fixed header + breathing room */
+        min-height: 100vh;
+    }
+
+    /* Scroll Reveal Base Class */
+    .scroll-reveal {
+        opacity: 0;
+        will-change: transform, opacity;
+    }
+
+    /* Scroll Reveal Transitions */
+    .reveal-fade-up {
+        transform: translateY(40px);
+        transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-fade-left {
+        transform: translateX(45px);
+        transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-fade-right {
+        transform: translateX(-45px);
+        transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-scale-up {
+        transform: scale(0.96) translateY(20px);
+        transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Revealed Class applied by JS */
+    .scroll-reveal.revealed {
+        opacity: 1;
+        transform: translate(0) scale(1);
+    }
+
+    /* DICOM Dropzone Hover Micro-animations */
+    .dropzone-container {
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .dropzone-container:hover {
+        border-color: rgba(245, 95, 36, 0.3) !important;
+        box-shadow: 0 12px 30px rgba(245, 95, 36, 0.05);
+    }
+    @keyframes floatCloud {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-8px);
+        }
+    }
+    .dropzone-container:hover .cloud-upload-icon {
+        animation: floatCloud 2.0s ease-in-out infinite;
+    }
+
+    /* Stats Grid Hover Micro-interactions */
+    .stats-grid-card {
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .stats-grid-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(245, 95, 36, 0.25) !important;
+        background-color: rgba(245, 95, 36, 0.02) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    }
+
+    /* Ambient Background Glow */
+    @keyframes ambientGlow {
+        0%, 100% {
+            transform: translate(0, 0) scale(1);
+        }
+        33% {
+            transform: translate(60px, -40px) scale(1.15);
+        }
+        66% {
+            transform: translate(-40px, 50px) scale(0.9);
+        }
+    }
+    
+    .animate-ambient-glow {
+        animation: ambientGlow 22s ease-in-out infinite alternate;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden relative">
+  <!-- Ambient background glow behind content -->
+  <div class="pointer-events-none fixed top-1/4 left-1/4 -z-10 h-[600px] w-[600px] rounded-full bg-primary/5 opacity-50 blur-[150px] animate-ambient-glow"></div>
+  
+  <!-- ── LAYER 0: HEADER ─────────────────────────────────── -->
+  <header class="header header-subpage">
+    <div class="logo-container">
+      <a href="index.html" class="logo-link">
+        <img id="logo-img" src="/icons/logo.png" alt="Precision Medical Logo" class="logo-icon">
+      </a>
+    </div>
+    <nav class="nav-menu">
+      <a href="departments.html" class="nav-link active">Departments</a>
+      <a href="about-us.html"    class="nav-link">About Us</a>
+      <a href="our-surgeons.html" class="nav-link">Our Surgeons</a>
+      <a href="second-opinion.html" class="nav-link">Second Opinion</a>
+      <a href="contacts.html"   class="nav-link">Contacts</a>
+    </nav>
+  </header>
+
+  <!-- Main Content wrapper -->
+  <main class="w-full max-w-[1920px] mx-auto departments-main">
+    
+    <!-- Hero Section -->
+    <section class="px-[20px] md:px-[50px] mb-16 md:mb-[100px]">
+      <h1 class="scroll-reveal reveal-fade-up text-headline-lg-mobile md:text-display-xl uppercase tracking-tighter text-on-background mb-6">
+        DEPARTMENTS
+      </h1>
+      <p class="scroll-reveal reveal-fade-up font-body-lg text-body-lg text-secondary max-w-2xl" style="transition-delay: 0.1s;">
+        Multidisciplinary precision mapping the future of neurological care. Driven by empirical data, specialized surgical focus, and uncompromising technological integration.
+      </p>
+    </section>
+
+    <!-- Interactive Catalog -->
+    <section class="scroll-reveal reveal-scale-up border border-on-background/10 bg-surface flex flex-col md:flex-row min-h-[600px] rounded-2xl overflow-hidden mx-4 md:mx-[50px] mb-16">
+      <!-- SideNavBar -->
+      <aside class="w-full md:w-80 bg-surface-container-low border-b md:border-b-0 md:border-r border-on-background/10 flex flex-col py-10 shrink-0">
+        <div class="px-8 mb-8 hidden md:block">
+          <div class="w-12 h-12 bg-surface-variant/40 mb-4 flex items-center justify-center border border-on-background/10 rounded-full">
+            <span class="material-symbols-outlined text-secondary">account_balance</span>
+          </div>
+          <h2 class="text-label-mono font-bold text-on-background mb-1">DEPARTMENTS</h2>
+          <p class="font-caption text-caption text-secondary">Precision Specializations</p>
+        </div>
+        
+        <nav class="flex flex-row md:flex-col overflow-x-auto md:overflow-x-visible hide-scrollbar" id="department-tabs">
+          <!-- Tab 1 -->
+          <button class="nav-tab active flex items-center gap-4 px-8 py-4 bg-secondary-container/50 text-primary border-b-2 md:border-b-0 md:border-r-2 border-primary text-left min-w-[200px] md:min-w-0 transition-transform scale-[0.98]" data-target="pane-1">
+            <span class="material-symbols-outlined">biotech</span>
+            <span class="font-helvetica text-label-mono uppercase tracking-wider">Neuro-Oncology</span>
+          </button>
+          <!-- Tab 2 -->
+          <button class="nav-tab flex items-center gap-4 px-8 py-4 text-secondary hover:bg-surface-variant/20 hover:text-on-background border-b-2 md:border-b-0 md:border-r-2 border-transparent hover:bg-secondary-container/30 transition-all duration-200 text-left min-w-[200px] md:min-w-0" data-target="pane-2">
+            <span class="material-symbols-outlined">architecture</span>
+            <span class="font-helvetica text-label-mono uppercase tracking-wider">Vascular</span>
+          </button>
+          <!-- Tab 3 -->
+          <button class="nav-tab flex items-center gap-4 px-8 py-4 text-secondary hover:bg-surface-variant/20 hover:text-on-background border-b-2 md:border-b-0 md:border-r-2 border-transparent hover:bg-secondary-container/30 transition-all duration-200 text-left min-w-[200px] md:min-w-0" data-target="pane-3">
+            <span class="material-symbols-outlined">reorder</span>
+            <span class="font-helvetica text-label-mono uppercase tracking-wider">Spine</span>
+          </button>
+          <!-- Tab 4 -->
+          <button class="nav-tab flex items-center gap-4 px-8 py-4 text-secondary hover:bg-surface-variant/20 hover:text-on-background border-b-2 md:border-b-0 md:border-r-2 border-transparent hover:bg-secondary-container/30 transition-all duration-200 text-left min-w-[200px] md:min-w-0" data-target="pane-4">
+            <span class="material-symbols-outlined">psychology</span>
+            <span class="font-helvetica text-label-mono uppercase tracking-wider">Functional</span>
+          </button>
+          <!-- Tab 5 -->
+          <button class="nav-tab flex items-center gap-4 px-8 py-4 text-secondary hover:bg-surface-variant/20 hover:text-on-background border-b-2 md:border-b-0 md:border-r-2 border-transparent hover:bg-secondary-container/30 transition-all duration-200 text-left min-w-[200px] md:min-w-0" data-target="pane-5">
+            <span class="material-symbols-outlined">orthopedics</span>
+            <span class="font-helvetica text-label-mono uppercase tracking-wider">Skull Base</span>
+          </button>
+        </nav>
+      </aside>
+
+      <!-- Content Area -->
+      <div class="flex-1 p-6 md:p-16 relative bg-background">
+        
+        <!-- Pane 1: Neuro-Oncology -->
+        <div class="tab-pane active h-full flex flex-col" id="pane-1">
+          <div class="flex items-center gap-4 mb-8">
+            <h2 class="text-headline-lg text-on-background">Neuro-Oncology</h2>
+            <span class="bg-surface-variant/50 text-secondary font-label-mono text-label-mono px-3 py-1 border border-on-background/10 uppercase rounded-full">Active</span>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 flex-1">
+            <div>
+              <div class="mb-8">
+                <h3 class="text-label-mono text-secondary uppercase mb-3">Medical Focus</h3>
+                <p class="font-body-md text-body-md text-on-background">Comprehensive management and surgical intervention for benign and malignant primary brain tumors, metastatic lesions, and complex spinal tumors.</p>
+              </div>
+              <div>
+                <h3 class="text-label-mono text-secondary uppercase mb-4">Tech Stack</h3>
+                <div class="flex flex-wrap gap-2">
+                  <span class="border border-on-background/10 bg-surface-container px-3 py-2 font-label-mono text-label-mono text-on-background flex items-center gap-2 rounded-lg"><span class="material-symbols-outlined text-[16px]">memory</span> iMRI</span>
+                  <span class="border border-on-background/10 bg-surface-container px-3 py-2 font-label-mono text-label-mono text-on-background flex items-center gap-2 rounded-lg"><span class="material-symbols-outlined text-[16px]">radar</span> HD-Navigation</span>
+                  <span class="border border-on-background/10 bg-surface-container px-3 py-2 font-label-mono text-label-mono text-on-background flex items-center gap-2 rounded-lg"><span class="material-symbols-outlined text-[16px]">vital_signs</span> Awake Surgery</span>
+                </div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 h-fit">
+              <div class="stats-grid-card border border-on-background/10 p-6 bg-surface-variant/20 flex flex-col justify-center items-center text-center rounded-xl">
+                <div class="font-tiposka text-headline-lg text-primary mb-2">94.2%</div>
+                <div class="font-label-mono text-label-mono text-secondary uppercase">Motor Preservation</div>
+              </div>
+              <div class="stats-grid-card border border-on-background/10 p-6 bg-surface-variant/20 flex flex-col justify-center items-center text-center rounded-xl">
+                <div class="font-tiposka text-headline-lg text-primary mb-2">5.0</div>
+                <div class="font-label-mono text-label-mono text-secondary uppercase">Avg Days Stay</div>
+              </div>
+            </div>
+          </div>
+          <div class="border-t border-on-background/10 pt-8 mt-auto flex items-center gap-6">
+            <img class="w-16 h-16 rounded-full border border-on-background/10 object-cover grayscale" alt="Dr. Elias Vance Portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbH2TpoInquvgKcjJm7oAuY_Pg-vP9ox_e6ThvppjbrnogpAdh8wOk4M0_HZ6gUpEMORBrccK5ZUgRLVel31_vThXh7GOSDYQmRzG9WGwSovmBX3XPF9xabAPn6kWp9A_cGfAyGveqUhWEomXw5LjkLYWJk75bLjj0-QAULLbUPPLLrZVL2NaAfRXfDPqTr2qAEX7DyEQ9VFD8SFOHJlrkqNtLnqbvc5TEHHcALoaPWiN3Qhgc9htex9JahPciA_auJg0sLGDTW5zs"/>
+            <div>
+              <div class="font-body-md text-body-md font-bold text-on-background">Dr. Elias Vance</div>
+              <div class="font-label-mono text-label-mono text-secondary uppercase">Head of Neuro-Oncology | MD, PhD</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pane 2: Vascular -->
+        <div class="tab-pane h-full flex flex-col" id="pane-2">
+          <div class="flex items-center gap-4 mb-8">
+            <h2 class="text-headline-lg text-on-background">Vascular</h2>
+            <span class="bg-surface-variant/50 text-secondary font-label-mono text-label-mono px-3 py-1 border border-on-background/10 uppercase rounded-full">Active</span>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 flex-1">
+            <div>
+              <div class="mb-8">
+                <h3 class="text-label-mono text-secondary uppercase mb-3">Medical Focus</h3>
+                <p class="font-body-md text-body-md text-on-background">Microsurgical and endovascular treatment of cerebral aneurysms, arteriovenous malformations (AVMs), cavernomas, and acute stroke interventions.</p>
+              </div>
+              <div>
+                <h3 class="text-label-mono text-secondary uppercase mb-4">Tech Stack</h3>
+                <div class="flex flex-wrap gap-2">
+                  <span class="border border-on-background/10 bg-surface-container px-3 py-2 font-label-mono text-label-mono text-on-background flex items-center gap-2 rounded-lg"><span class="material-symbols-outlined text-[16px]">waves</span> Doppler</span>
+                  <span class="border border-on-background/10 bg-surface-container px-3 py-2 font-label-mono text-label-mono text-on-background flex items-center gap-2 rounded-lg"><span class="material-symbols-outlined text-[16px]">visibility</span> ICG Angiography</span>
+                  <span class="border border-on-background/10 bg-surface-container px-3 py-2 font-label-mono text-label-mono text-on-background flex items-center gap-2 rounded-lg"><span class="material-symbols-outlined text-[16px]">hub</span> Hybrid Suite</span>
+                </div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 h-fit">
+              <div class="stats-grid-card border border-on-background/10 p-6 bg-surface-variant/20 flex flex-col justify-center items-center text-center rounded-xl">
+                <div class="font-tiposka text-headline-lg text-primary mb-2">97.8%</div>
+                <div class="font-label-mono text-label-mono text-secondary uppercase">Occlusion Rate</div>
+              </div>
+              <div class="stats-grid-card border border-on-background/10 p-6 bg-surface-variant/20 flex flex-col justify-center items-center text-center rounded-xl">
+                <div class="font-tiposka text-headline-lg text-primary mb-2">0.4%</div>
+                <div class="font-label-mono text-label-mono text-secondary uppercase">Deficit Risk</div>
+              </div>
+            </div>
+          </div>
+          <div class="border-t border-on-background/10 pt-8 mt-auto flex items-center gap-6">
+            <img class="w-16 h-16 rounded-full border border-on-background/10 object-cover grayscale" alt="Dr. Sarah Lin Portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgXYLRbvHseunsBvYS90TFrtyRUvz2vLb1Z_DAz9DZ-X_6CgZsSusWivmNKiGSiyBs3qwmBf6FSNMvIodzZYatM-nol4xbR8PSQCeLe0Cu9OChaRMJG40-i-OHlquPZWNJ6SK6TA79tQ6ebNJdvR_gcF1A6L8B-3ZKht0An7VocL1S-K76StctjxroUBhoixRkxLhY72vZ5Id_0tT4wzxeP6Ohu8wV87cWbY7J0nnN0XlHE3TMb00uEi_z3pmEcVg_VEPMsx8IK2R5"/>
+            <div>
+              <div class="font-body-md text-body-md font-bold text-on-background">Dr. Sarah Lin</div>
+              <div class="font-label-mono text-label-mono text-secondary uppercase">Head of Vascular | MD, FACS</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pane 3: Spine -->
+        <div class="tab-pane h-full flex flex-col" id="pane-3">
+          <div class="flex items-center gap-4 mb-8">
+            <h2 class="text-headline-lg text-on-background">Spine & Spinal Cord</h2>
+            <span class="bg-surface-variant/50 text-secondary font-label-mono text-label-mono px-3 py-1 border border-on-background/10 uppercase rounded-full">Active</span>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 flex-1">
+            <div>
+              <div class="mb-8">
+                <h3 class="text-label-mono text-secondary uppercase mb-3">Medical Focus</h3>
+                <p class="font-body-md text-body-md text-on-background">Minimally invasive decompression, spinal trauma stabilization, herniation repair, and complex reconstructive surgery for spinal stenosis.</p>
+              </div>
+              <div>
+                <h3 class="text-label-mono text-secondary uppercase mb-4">Tech Stack</h3>
+                <div class="flex flex-wrap gap-2">
+                  <span class="border border-on-background/10 bg-surface-container px-3 py-2 font-label-mono text-label-mono text-on-background rounded-lg">Tube Retractors</span>
+                  <span class="border border-on-background/10 bg-surface-container px-3 py-2 font-label-mono text-label-mono text-on-background rounded-lg">MEP/SSEP Monitoring</span>
+                </div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 h-fit">
+              <div class="stats-grid-card border border-on-background/10 p-6 bg-surface-variant/20 flex flex-col justify-center items-center text-center rounded-xl">
+                <div class="font-tiposka text-headline-lg text-primary mb-2">96.5%</div>
+                <div class="font-label-mono text-label-mono text-secondary uppercase">Pain Relief</div>
+              </div>
+              <div class="stats-grid-card border border-on-background/10 p-6 bg-surface-variant/20 flex flex-col justify-center items-center text-center rounded-xl">
+                <div class="font-tiposka text-headline-lg text-primary mb-2">&lt;10</div>
+                <div class="font-label-mono text-label-mono text-secondary uppercase">Days Recovery</div>
+              </div>
+            </div>
+          </div>
+          <div class="border-t border-on-background/10 pt-8 mt-auto flex items-center gap-6">
+            <div class="w-16 h-16 rounded-full border border-on-background/10 bg-surface-variant/30 flex items-center justify-center font-bold text-secondary">V</div>
+            <div>
+              <div class="font-body-md text-body-md font-bold text-on-background">Dr. Viktor Kane</div>
+              <div class="font-label-mono text-label-mono text-secondary uppercase">Head of Spine Surgery | MD</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pane 4: Functional -->
+        <div class="tab-pane h-full flex flex-col" id="pane-4">
+          <div class="flex items-center gap-4 mb-8">
+            <h2 class="text-headline-lg text-on-background">Functional</h2>
+            <span class="bg-surface-variant/50 text-secondary font-label-mono text-label-mono px-3 py-1 border border-on-background/10 uppercase rounded-full">Active</span>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 flex-1">
+            <div>
+              <div class="mb-8">
+                <h3 class="text-label-mono text-secondary uppercase mb-3">Medical Focus</h3>
+                <p class="font-body-md text-body-md text-on-background">Surgical management of movement disorders including Parkinson's disease, severe epilepsy, and chronic pain syndromes.</p>
+              </div>
+              <div>
+                <h3 class="text-label-mono text-secondary uppercase mb-4">Tech Stack</h3>
+                <div class="flex flex-wrap gap-2">
+                  <span class="border border-on-background/10 bg-surface-container px-3 py-2 font-label-mono text-label-mono text-on-background rounded-lg">Stereotactic Frame</span>
+                  <span class="border border-on-background/10 bg-surface-container px-3 py-2 font-label-mono text-label-mono text-on-background rounded-lg">MER</span>
+                  <span class="border border-on-background/10 bg-surface-container px-3 py-2 font-label-mono text-label-mono text-on-background rounded-lg">Neurostimulation</span>
+                </div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 h-fit">
+              <div class="stats-grid-card border border-on-background/10 p-6 bg-surface-variant/20 flex flex-col justify-center items-center text-center rounded-xl">
+                <div class="font-tiposka text-headline-lg text-primary mb-2">89%</div>
+                <div class="font-label-mono text-label-mono text-secondary uppercase">Tremor Reduction</div>
+              </div>
+              <div class="stats-grid-card border border-on-background/10 p-6 bg-surface-variant/20 flex flex-col justify-center items-center text-center rounded-xl">
+                <div class="font-tiposka text-headline-lg text-primary mb-2">75%</div>
+                <div class="font-label-mono text-label-mono text-secondary uppercase">Seizure Freedom</div>
+              </div>
+            </div>
+          </div>
+          <div class="border-t border-on-background/10 pt-8 mt-auto flex items-center gap-6">
+            <div class="w-16 h-16 rounded-full border border-on-background/10 bg-surface-variant/30 flex items-center justify-center font-bold text-secondary">A</div>
+            <div>
+              <div class="font-body-md text-body-md font-bold text-on-background">Dr. Arthur Pendelton</div>
+              <div class="font-label-mono text-label-mono text-secondary uppercase">Head of Functional Neurosurgery | MD, PhD</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pane 5: Skull Base -->
+        <div class="tab-pane h-full flex flex-col" id="pane-5">
+          <div class="flex items-center gap-4 mb-8">
+            <h2 class="text-headline-lg text-on-background">Skull Base</h2>
+            <span class="bg-surface-variant/50 text-secondary font-label-mono text-label-mono px-3 py-1 border border-on-background/10 uppercase rounded-full">Active</span>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 flex-1">
+            <div>
+              <div class="mb-8">
+                <h3 class="text-label-mono text-secondary uppercase mb-3">Medical Focus</h3>
+                <p class="font-body-md text-body-md text-on-background">Highly specialized resection of acoustic neuromas, pituitary adenomas, chordomas, and complex lesions at the cranial base.</p>
+              </div>
+              <div>
+                <h3 class="text-label-mono text-secondary uppercase mb-4">Tech Stack</h3>
+                <div class="flex flex-wrap gap-2">
+                  <span class="border border-on-background/10 bg-surface-container px-3 py-2 font-label-mono text-label-mono text-on-background rounded-lg">Endoscopic Endonasal</span>
+                  <span class="border border-on-background/10 bg-surface-container px-3 py-2 font-label-mono text-label-mono text-on-background rounded-lg">Nerve Monitoring</span>
+                </div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 h-fit">
+              <div class="stats-grid-card border border-on-background/10 p-6 bg-surface-variant/20 flex flex-col justify-center items-center text-center rounded-xl">
+                <div class="font-tiposka text-headline-lg text-primary mb-2">92.5%</div>
+                <div class="font-label-mono text-label-mono text-secondary uppercase">Radical Resection</div>
+              </div>
+            </div>
+          </div>
+          <div class="border-t border-on-background/10 pt-8 mt-auto flex items-center gap-6">
+            <div class="w-16 h-16 rounded-full border border-on-background/10 bg-surface-variant/30 flex items-center justify-center font-bold text-secondary">M</div>
+            <div>
+              <div class="font-body-md text-body-md font-bold text-on-background">Dr. Marcus Vance</div>
+              <div class="font-label-mono text-label-mono text-secondary uppercase">Head of Skull Base Surgery | MD, FACS</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Second Opinion Section -->
+    <section class="mt-[120px] px-[20px] md:px-[50px] overflow-hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 border border-on-background/10 bg-surface-variant/10 p-8 md:p-16 rounded-xl">
+        <div class="lg:col-span-5 scroll-reveal reveal-fade-right">
+          <h2 class="text-headline-lg text-on-background mb-4">MRI/CT Second Opinion</h2>
+          <p class="font-body-md text-body-md text-secondary mb-8 max-w-md">
+            Upload your recent DICOM imaging files for an objective, data-driven secondary analysis by our specialized surgical panel.
+          </p>
+          <form class="space-y-6">
+            <div>
+              <input class="w-full bg-transparent border-0 border-b border-on-background/20 py-3 font-label-mono text-label-mono focus:ring-0 focus:border-primary transition-colors text-on-background placeholder:text-secondary uppercase rounded-t-lg" placeholder="PATIENT NAME" type="text"/>
+            </div>
+            <div>
+              <input class="w-full bg-transparent border-0 border-b border-on-background/20 py-3 font-label-mono text-label-mono focus:ring-0 focus:border-primary transition-colors text-on-background placeholder:text-secondary uppercase rounded-t-lg" placeholder="CONTACT EMAIL" type="email"/>
+            </div>
+            <div>
+              <input class="w-full bg-transparent border-0 border-b border-on-background/20 py-3 font-label-mono text-label-mono focus:ring-0 focus:border-primary transition-colors text-on-background placeholder:text-secondary uppercase rounded-t-lg" placeholder="CLINICAL DESCRIPTION (BRIEF)" type="text"/>
+            </div>
+            <button class="mt-8 bg-primary text-on-primary font-helvetica text-label-mono uppercase px-10 py-4 hover:bg-primary-container transition-colors w-full md:w-auto text-center rounded-lg border border-transparent" type="button">
+              Submit Case Data
+            </button>
+          </form>
+        </div>
+        
+        <div class="lg:col-span-7 flex flex-col justify-center scroll-reveal reveal-fade-left">
+          <div class="dropzone-container border-2 border-dashed border-on-background/20 bg-background/50 flex flex-col items-center justify-center p-12 h-64 hover:bg-surface-variant/20 transition-colors cursor-pointer group rounded-xl">
+            <span class="cloud-upload-icon material-symbols-outlined text-4xl text-secondary mb-4 group-hover:text-primary transition-colors">cloud_upload</span>
+            <div class="font-label-mono text-label-mono text-on-background uppercase mb-2">Drag &amp; Drop DICOM Files</div>
+            <div class="font-caption text-caption text-secondary">Support for .zip, .rar containing .dcm (Max 500MB)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="mt-[120px] px-[20px] md:px-[50px] mb-12">
+      <div class="scroll-reveal reveal-fade-up flex justify-between items-end border-b border-on-background/10 pb-6 mb-12">
+        <h2 class="text-body-lg uppercase font-bold text-on-background">Clinical Outcomes</h2>
+        <a class="nav-link font-label-mono text-label-mono text-primary hover:text-primary-container uppercase flex items-center gap-2" href="#">
+          View Registry <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+        </a>
+      </div>
+      <div class="reveal-stagger grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Case Card 1 -->
+        <div class="scroll-reveal reveal-fade-up reveal-item border border-on-background/10 bg-surface group hover:border-primary/50 transition-all duration-300 rounded-xl overflow-hidden">
+          <div class="h-48 border-b border-on-background/10 overflow-hidden relative">
+            <img class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 rounded-t-xl" alt="Glioblastoma MRI Visualization" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVp2-NkWLocKkykJGBDSOvISx-nYEI0FwygrwmTlMdvUGcVT2cmBA7kN3D_ttJkYqxwqz4GD2Yrn9p2aqqdiKsrp8MUOlLiRzgcb5OYpV5vvi8kS86GiQ5hoWziT81CW942v3AifKgsh8DqEbvWmkAsGwnqdENe2yZgBowd6HdCBggnqLf9fTgrcey0OP11pJUFj41uoZ5e7fQAD7PFvqyncY2E_MJ-CC1UgccURSfT4dkLtzDZE-rijwtxb9OtvCPSZXZfnhcpuBr"/>
+            <div class="absolute top-4 left-4 bg-background px-2 py-1 border border-on-background/10 font-label-mono text-[10px] uppercase rounded">Case #892</div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-body-md font-bold text-on-background mb-2">Glioblastoma Resection</h3>
+            <p class="font-caption text-caption text-secondary mb-4 line-clamp-2">Awake craniotomy utilizing functional mapping to preserve speech centers in left temporal lobe.</p>
+            <div class="flex gap-2">
+              <span class="text-[10px] font-label-mono uppercase px-2 py-1 border border-on-background/10 text-secondary bg-surface-variant/30 rounded">iMRI</span>
+              <span class="text-[10px] font-label-mono uppercase px-2 py-1 border border-on-background/10 text-secondary bg-surface-variant/30 rounded">Mapping</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Case Card 2 -->
+        <div class="scroll-reveal reveal-fade-up reveal-item border border-on-background/10 bg-surface group hover:border-primary/50 transition-all duration-300 rounded-xl overflow-hidden">
+          <div class="h-48 border-b border-on-background/10 overflow-hidden relative">
+            <img class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 rounded-t-xl" alt="MCA Aneurysm Angiography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmx5DZu5EnG0tCRq_K-ZAEiPzO3eLzjZDwc8y6z_F0q1Zg5Dd7xCGtHwNjbEr17FOuR3JIGPnvcAnoY6pcxd1OGTCpXWOI7xoLcTa-FcZVz3VmK1byIkMztLnnZq5yaQhKN5tGbDsVfyqbNiawo8RhUZzIdBJ68ooVyGPh-4e6_6tN6_cb9U7fZmLIaUVthXKH0E6qgv3QBLZQgc2lcKqEQeo_6rN3owR2e8GPfiVRumaN2wSGqxiroMLq0okqEbANzdCpU61HchXH"/>
+            <div class="absolute top-4 left-4 bg-background px-2 py-1 border border-on-background/10 font-label-mono text-[10px] uppercase rounded">Case #104</div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-body-md font-bold text-on-background mb-2">Complex Aneurysm Clipping</h3>
+            <p class="font-caption text-caption text-secondary mb-4 line-clamp-2">Microsurgical clipping of a large, wide-necked MCA aneurysm utilizing ICG angiography validation.</p>
+            <div class="flex gap-2">
+              <span class="text-[10px] font-label-mono uppercase px-2 py-1 border border-on-background/10 text-secondary bg-surface-variant/30 rounded">Vascular</span>
+              <span class="text-[10px] font-label-mono uppercase px-2 py-1 border border-on-background/10 text-secondary bg-surface-variant/30 rounded">ICG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Case Card 3 -->
+        <div class="scroll-reveal reveal-fade-up reveal-item border border-on-background/10 bg-surface group hover:border-primary/50 transition-all duration-300 rounded-xl overflow-hidden">
+          <div class="h-48 border-b border-on-background/10 overflow-hidden relative">
+            <img class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 rounded-t-xl" alt="Titanium Spinal Hardware" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo8QXL1FfXM1QL2_jjYk4HO5EmMEgLibmxbtOgw7QBbRVpYlJfRqv4iv8vnIxbTJrOu41VCA-JUcGcsLqXTFRf5MUzvWjBZZJWvL_lUQYGheIh_HxPHlZL4nY77TS0zPyfbXxN9h9nMeAer9mnhTzAV8JA11n-Er7x2YbcvPm4NcfBIvIuUc5ygXyHgiXhvtRmD0_WyaHpo34zeu1Qs0Bl9oXXU5QlZrue4WnoFJhJUavHaz7DN1cyV1zYibmWcsuATRYSIpGZssAv"/>
+            <div class="absolute top-4 left-4 bg-background px-2 py-1 border border-on-background/10 font-label-mono text-[10px] uppercase rounded">Case #445</div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-body-md font-bold text-on-background mb-2">Spinal Fusion</h3>
+            <p class="font-caption text-caption text-secondary mb-4 line-clamp-2">Minimally invasive TLIF procedure for L4-L5 spondylolisthesis with excellent structural recovery.</p>
+            <div class="flex gap-2">
+              <span class="text-[10px] font-label-mono uppercase px-2 py-1 border border-on-background/10 text-secondary bg-surface-variant/30 rounded">MIS</span>
+              <span class="text-[10px] font-label-mono uppercase px-2 py-1 border border-on-background/10 text-secondary bg-surface-variant/30 rounded">Hardware</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-background border-t border-on-background/10 flex flex-col md:flex-row justify-between items-center w-full px-[20px] md:px-[50px] py-12 mt-[120px] max-w-[1920px] mx-auto transition-all duration-300">
+    <div class="font-label-mono text-caption uppercase text-on-background mb-6 md:mb-0 text-center md:text-left">
+      © 2026 NEUROSURGERY CLINIC. PRECISION IN PRACTICE.
+    </div>
+    <div class="flex flex-col md:flex-row gap-4 md:gap-8 text-center">
+      <a class="nav-link text-secondary hover:text-on-background transition-colors font-body-md text-body-md" href="#">Privacy Protocol</a>
+      <a class="nav-link text-secondary hover:text-on-background transition-colors font-body-md text-body-md" href="#">Terms of Service</a>
+      <a class="nav-link text-secondary hover:text-on-background transition-colors font-body-md text-body-md" href="#">Patient Data Protection</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="/main.js"></script>
+  <script>
+    // Simple Tab Logic for Interactive Catalog
+    document.addEventListener('DOMContentLoaded', () => {
+        const tabs = document.querySelectorAll('.nav-tab');
+        const panes = document.querySelectorAll('.tab-pane');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active styles from all tabs
+                tabs.forEach(t => {
+                    t.classList.remove('active', 'bg-secondary-container/50', 'text-primary', 'border-primary', 'scale-[0.98]');
+                    t.classList.add('text-secondary', 'border-transparent');
+                    t.classList.remove('border-b-2');
+                    t.classList.remove('border-r-2');
+                });
+
+                // Add active styles to clicked tab
+                tab.classList.add('active', 'bg-secondary-container/50', 'text-primary', 'scale-[0.98]');
+                tab.classList.remove('text-secondary', 'border-transparent');
+                if (window.innerWidth < 768) {
+                     tab.classList.add('border-b-2', 'border-primary');
+                } else {
+                     tab.classList.add('border-r-2', 'border-primary');
+                }
+
+                // Hide all panes
+                panes.forEach(p => p.classList.remove('active'));
+
+                // Show target pane
+                const targetId = tab.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+        
+        // Handle window resizing to adjust active tab borders correctly
+        window.addEventListener('resize', () => {
+            const activeTab = document.querySelector('.nav-tab.active');
+            if (activeTab) {
+                if (window.innerWidth < 768) {
+                    activeTab.classList.remove('border-r-2');
+                    activeTab.classList.add('border-b-2', 'border-primary');
+                } else {
+                    activeTab.classList.remove('border-b-2');
+                    activeTab.classList.add('border-r-2', 'border-primary');
+                }
+            }
+        });
+
+        // Intersection Observer for scroll animations
+        const staggerContainers = document.querySelectorAll('.reveal-stagger');
+        staggerContainers.forEach(container => {
+            const items = container.querySelectorAll('.reveal-item');
+            items.forEach((item, idx) => {
+                item.style.transitionDelay = `${idx * 0.12}s`;
+            });
+        });
+
+        const revealOptions = {
+            threshold: 0.05,
+            rootMargin: '0px 0px -60px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        const elementsToReveal = document.querySelectorAll('.scroll-reveal');
+        elementsToReveal.forEach(el => revealObserver.observe(el));
+    });
+  </script>
+</body>
+</html>

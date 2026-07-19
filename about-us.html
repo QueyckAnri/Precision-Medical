@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Precision Medical</title>
+  <meta name="description" content="Precision Medical - Surgery at the intersection of medicine and high-end engineering. Our mission, values, science, and patient journey.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Serif:wght@600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- Tailwind CDN & Config (matching departments.html pattern) -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-bright": "#fcf9f8",
+            "surface-container-high": "#eae7e7",
+            "surface-container-highest": "#e4e2e2",
+            "surface-variant": "#e4e2e2",
+            "surface-container": "#f0eded",
+            "surface-container-low": "#f6f3f3",
+            "surface-container-lowest": "#ffffff",
+            "surface-dim": "#dcd9d9",
+            "on-background": "#1b1c1c",
+            "on-surface": "#1b1c1c",
+            "on-surface-variant": "#5a4139",
+            "on-tertiary-container": "#fcfcfc",
+            "on-primary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "on-error": "#ffffff",
+            "inverse-surface": "#303030",
+            "inverse-on-surface": "#f3f0f0",
+            "outline": "#8e7067",
+            "outline-variant": "#e2bfb4",
+            "tertiary": "#5b5c5c",
+            "secondary": "#625d5d",
+            "secondary-container": "#e5dedd",
+            "on-secondary-container": "#666161",
+            "tertiary-container": "#737575",
+            "tertiary-fixed": "#e2e2e2",
+            "tertiary-fixed-dim": "#c6c6c7",
+            "on-tertiary-fixed": "#1a1c1c",
+            "on-tertiary-fixed-variant": "#454747",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+            "surface": "#fcf9f8",
+            "surface-tint": "#ab3600",
+            "primary": "#a73400",
+            "primary-container": "#d04504",
+            "on-primary-container": "#fffbff",
+            "on-primary-fixed": "#390c00",
+            "on-primary-fixed-variant": "#822700",
+            "primary-fixed": "#ffdbcf",
+            "primary-fixed-dim": "#ffb59c",
+            "inverse-primary": "#ffb59c",
+            "background": "#fcf9f8",
+            "secondary-fixed": "#e8e1e0",
+            "secondary-fixed-dim": "#ccc5c4",
+            "on-secondary-fixed": "#1e1b1b",
+            "on-secondary-fixed-variant": "#4a4646"
+          },
+          borderRadius: {
+            DEFAULT: "12px",
+            sm: "8px",
+            lg: "20px",
+            xl: "28px",
+            "2xl": "40px",
+            full: "9999px"
+          },
+          spacing: {
+            lg: "24px",
+            xs: "4px",
+            gutter: "24px",
+            xl: "40px",
+            "margin-desktop": "64px",
+            sm: "8px",
+            unit: "4px",
+            "margin-mobile": "16px",
+            md: "16px"
+          },
+          fontFamily: {
+            "code-data": ["JetBrains Mono"],
+            "body-lg": ["Inter"],
+            "label-caps": ["JetBrains Mono"],
+            "headline-lg": ["JetBrains Mono"],
+            "body-sm": ["Inter"],
+            "headline-lg-mobile": ["JetBrains Mono"],
+            "display-lg": ["JetBrains Mono"],
+            "display-sm": ["JetBrains Mono"],
+            "headline-md": ["JetBrains Mono"],
+            "body-md": ["Inter"]
+          },
+          fontSize: {
+            "code-data": ["14px", { lineHeight: "1.4", fontWeight: "400" }],
+            "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+            "label-caps": ["12px", { lineHeight: "1.4", letterSpacing: "0.05em", fontWeight: "500" }],
+            "headline-lg": ["24px", { lineHeight: "1.2", fontWeight: "700" }],
+            "body-sm": ["14px", { lineHeight: "1.5", fontWeight: "400" }],
+            "headline-lg-mobile": ["20px", { lineHeight: "1.2", fontWeight: "700" }],
+            "display-lg": ["64px", { lineHeight: "1.0", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "display-sm": ["36px", { lineHeight: "1.1", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "headline-md": ["18px", { lineHeight: "1.2", fontWeight: "700" }],
+            "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }]
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- JS check for page transitions -->
+  <script>
+    document.documentElement.classList.add('js-enabled');
+  </script>
+
+  <style>
+    /* Subpage base */
+    body { background-color: #F9F9F9; color: #262323; }
+
+    /* Material Symbols */
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+
+    /* Hairline borders */
+    .hairline-border { border: 1px solid rgba(38, 35, 35, 0.08); }
+    .hairline-t { border-top: 1px solid rgba(38, 35, 35, 0.08); }
+    .hairline-b { border-bottom: 1px solid rgba(38, 35, 35, 0.08); }
+    .hairline-l { border-left: 1px solid rgba(38, 35, 35, 0.08); }
+    .hairline-r { border-right: 1px solid rgba(38, 35, 35, 0.08); }
+
+    /* Brand colors */
+    .bg-orange-brand { background-color: #F55F24; }
+    .text-orange-brand { color: #F55F24; }
+    .border-orange-brand { border-color: #F55F24; }
+
+    /* Enforce Tiposka for display headings only */
+    h1, h2 {
+      font-family: 'Tiposka', 'JetBrains Mono', 'IBM Plex Serif', monospace !important;
+    }
+
+    /* Smooth stat counter animation */
+    .stat-num {
+      transition: all 0.3s ease;
+      will-change: contents; /* own compositing layer during count animation */
+    }
+
+    /* Journey line connector */
+    .journey-connector {
+      position: absolute;
+      top: 20px;
+      left: 0; right: 0;
+      height: 1px;
+      background: rgba(38,35,35,0.1);
+      z-index: 0;
+    }
+
+    /* CTA section subtle background */
+    .cta-section {
+      background: linear-gradient(180deg, #F9F9F9 0%, #F0EDED 100%);
+    }
+
+    /* ─── Scroll performance ─────────────────────────────────────────────── */
+    /* Skip layout/paint for off-screen sections; browser reserves space via
+       contain-intrinsic-size so the scrollbar doesn't jump. */
+    main > section {
+      content-visibility: auto;
+      contain-intrinsic-size: 0 400px;
+    }
+    /* Overscroll: prevent the pull-to-refresh jank on mobile */
+    html { overscroll-behavior-y: none; }
+    /* Touch: ensure scrolling stays on the GPU compositor thread */
+    body { touch-action: pan-y; }
+  </style>
+</head>
+<body>
+  <div class="subpage-root">
+
+    <!-- ═══ SHARED SUBPAGE HEADER ═══ -->
+    <header class="header header-subpage">
+      <div class="logo-container">
+        <a href="index.html" class="logo-link">
+          <img id="logo-img" src="/icons/logo.png" alt="Precision Medical Logo" class="logo-icon">
+        </a>
+      </div>
+      <nav class="nav-menu">
+        <a href="departments.html"    class="nav-link">Departments</a>
+        <a href="about-us.html"       class="nav-link active">About Us</a>
+        <a href="our-surgeons.html"   class="nav-link">Our Surgeons</a>
+        <a href="second-opinion.html" class="nav-link">Second Opinion</a>
+        <a href="contacts.html"       class="nav-link">Contacts</a>
+      </nav>
+    </header>
+
+    <!-- ═══ MAIN CONTENT ═══ -->
+    <main>
+
+      <!-- ── 1. HERO / MANIFESTO ── -->
+      <section class="px-margin-desktop pt-24 pb-16 max-w-screen-2xl mx-auto">
+        <div class="grid grid-cols-12 gap-gutter items-stretch md:min-h-[500px]">
+          <div class="col-span-12 md:col-span-8">
+            <h1 class="font-display-lg text-display-lg uppercase mb-xl" style="font-size: clamp(52px, 6vw, 96px); letter-spacing: -0.02em; line-height: 0.95;">
+              ABOUT US
+            </h1>
+            <h2 class="font-headline-lg text-headline-lg uppercase mb-lg leading-tight" style="font-size: clamp(20px, 2.2vw, 32px);">
+              Surgery at the Intersection of<br>Medicine &amp; High-End Engineering
+            </h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+              Our global mission is to transform neurosurgical outcomes by treating the human nervous system with the same rigorous protocols and sub-millimeter tolerances found in aerospace engineering. We minimize risk through data-driven validation, and we treat every patient as a precision engineering problem — with zero tolerance for avoidable error.
+            </p>
+          </div>
+          <div class="col-span-12 md:col-span-4 h-[380px] md:h-full w-full relative md:-top-12">
+            <iframe src="https://my.spline.design/radialpattern-H8itRcAFLZT1CHH3pWp13GkO/" frameborder="0" width="100%" height="100%" style="border: none; background: transparent;" allowtransparency="true" loading="lazy"></iframe>
+            <!-- Opaque cover-up overlay block matching background color (#F9F9F9) to hide "made in spline" watermark -->
+            <div class="absolute bottom-[20px] right-[20px] w-[138px] h-[38px] bg-[#F9F9F9] pointer-events-none z-10"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 2. MISSION & VALUES ── -->
+      <section class="px-margin-desktop py-xl max-w-screen-2xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 hairline-border rounded-2xl overflow-hidden">
+          <!-- Col 1 -->
+          <div class="p-lg md:hairline-r">
+            <span class="font-code-data text-code-data text-orange-brand block mb-md">01 // ETHOS</span>
+            <h3 class="font-headline-md text-headline-md uppercase mb-md">Uncompromising Precision</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Our internal protocols mandate sub-millimeter accuracy for every intervention, utilizing automated intraoperative verification systems and real-time neurophysiological monitoring.
+            </p>
+          </div>
+          <!-- Col 2 -->
+          <div class="p-lg md:hairline-r">
+            <span class="font-code-data text-code-data text-orange-brand block mb-md">02 // PROTOCOL</span>
+            <h3 class="font-headline-md text-headline-md uppercase mb-md">Patient Safety First</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              A rigorous 6-layer pre-surgical validation process precedes every clinical decision — from preoperative simulation to real-time neural monitoring and ICU infection containment protocols.
+            </p>
+          </div>
+          <!-- Col 3 -->
+          <div class="p-lg">
+            <span class="font-code-data text-code-data text-orange-brand block mb-md">03 // POLICY</span>
+            <h3 class="font-headline-md text-headline-md uppercase mb-md">Absolute Transparency</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              We maintain a fully public outcomes registry. Every surgical result — including complications — is cataloged and published for institutional audit and independent patient review.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 3. STATS STRIP ── -->
+      <section class="mt-xl px-margin-desktop">
+        <div class="max-w-screen-2xl mx-auto grid grid-cols-2 md:grid-cols-4 hairline-border rounded-2xl overflow-hidden">
+          <div class="py-xl px-margin-desktop text-center md:hairline-r">
+            <div class="font-display-sm text-display-sm mb-xs stat-num" data-val="2400" data-suffix="+">2,400+</div>
+            <div class="font-label-caps text-label-caps uppercase text-on-surface-variant">Successful Surgeries</div>
+          </div>
+          <div class="py-xl px-margin-desktop text-center md:hairline-r">
+            <div class="font-display-sm text-display-sm mb-xs stat-num" data-val="14" data-suffix="">14</div>
+            <div class="font-label-caps text-label-caps uppercase text-on-surface-variant">Patented Methodologies</div>
+          </div>
+          <div class="py-xl px-margin-desktop text-center md:hairline-r">
+            <div class="font-display-sm text-display-sm mb-xs stat-num" data-val="38" data-suffix="">38</div>
+            <div class="font-label-caps text-label-caps uppercase text-on-surface-variant">Countries — Patient Geography</div>
+          </div>
+          <div class="py-xl px-margin-desktop text-center">
+            <div class="font-display-sm text-display-sm mb-xs stat-num" data-val="97.4" data-suffix="%" data-decimal="1">97.4%</div>
+            <div class="font-label-caps text-label-caps uppercase text-on-surface-variant">Patient Recovery Rate / NPS</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 4. SCIENTIFIC ACTIVITY & R&D ── -->
+      <section class="px-margin-desktop py-xl max-w-screen-2xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-xl">
+          <!-- Left: Publications -->
+          <div>
+            <h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-lg flex items-center gap-2">
+              <span class="material-symbols-outlined text-sm">article</span> Academic Publications
+            </h3>
+            <ul class="space-y-md">
+              <li class="hairline-b pb-md flex justify-between items-end gap-4">
+                <div>
+                  <div class="font-headline-md text-headline-md">THE LANCET NEUROLOGY</div>
+                  <div class="font-body-sm text-body-sm text-on-surface-variant">Vol 24 — Neural Mapping Efficiency in Awake Craniotomy</div>
+                </div>
+                <span class="font-code-data text-code-data text-on-surface-variant shrink-0">2025</span>
+              </li>
+              <li class="hairline-b pb-md flex justify-between items-end gap-4">
+                <div>
+                  <div class="font-headline-md text-headline-md">NATURE MEDICINE</div>
+                  <div class="font-body-sm text-body-sm text-on-surface-variant">Automated Hemostatic Control Protocols in Vascular Neurosurgery</div>
+                </div>
+                <span class="font-code-data text-code-data text-on-surface-variant shrink-0">2025</span>
+              </li>
+              <li class="hairline-b pb-md flex justify-between items-end gap-4">
+                <div>
+                  <div class="font-headline-md text-headline-md">JOURNAL OF NEUROSURGERY</div>
+                  <div class="font-body-sm text-body-sm text-on-surface-variant">Longitudinal NPS Stability Analysis Post-DBS Implantation</div>
+                </div>
+                <span class="font-code-data text-code-data text-on-surface-variant shrink-0">2024</span>
+              </li>
+              <li class="hairline-b pb-md flex justify-between items-end gap-4">
+                <div>
+                  <div class="font-headline-md text-headline-md">BRAIN — OUP JOURNAL</div>
+                  <div class="font-body-sm text-body-sm text-on-surface-variant">Functional Recovery Trajectories in Spinal Cord Trauma Patients</div>
+                </div>
+                <span class="font-code-data text-code-data text-on-surface-variant shrink-0">2024</span>
+              </li>
+              <li class="pb-md flex justify-between items-end gap-4">
+                <div>
+                  <div class="font-headline-md text-headline-md">WORLD NEUROSURGERY</div>
+                  <div class="font-body-sm text-body-sm text-on-surface-variant">Skull Base Reconstruction Outcomes: 5-Year Registry Audit</div>
+                </div>
+                <span class="font-code-data text-code-data text-on-surface-variant shrink-0">2023</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right: Clinical Trials -->
+          <div class="bg-surface-container p-lg rounded-2xl">
+            <h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-lg">Clinical Trial Status</h3>
+            <div class="grid grid-cols-2 gap-lg mb-lg">
+              <div class="space-y-sm">
+                <div class="font-code-data text-code-data text-on-surface-variant">ACTIVE TRIALS</div>
+                <div class="font-display-sm text-display-sm">03</div>
+              </div>
+              <div class="space-y-sm">
+                <div class="font-code-data text-code-data text-on-surface-variant">PHASE III COMPLETE</div>
+                <div class="font-display-sm text-display-sm">02</div>
+              </div>
+            </div>
+            <div class="hairline-t pt-lg flex justify-between items-start">
+              <div>
+                <div class="font-code-data text-code-data text-on-surface-variant uppercase mb-sm">World Health Organization</div>
+                <div class="font-headline-md text-headline-md uppercase">1 WHO REGISTERED STUDY</div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-sm">Ongoing multinational registry for minimally invasive spinal trauma outcomes.</p>
+              </div>
+              <span class="material-symbols-outlined text-4xl opacity-30 mt-1">public</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 5. PATIENT JOURNEY TIMELINE ── -->
+      <section class="px-margin-desktop py-xl max-w-screen-2xl mx-auto">
+        <h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-xl">Institutional Patient Journey</h3>
+        <div class="relative overflow-x-auto">
+          <div style="min-width: 900px; display: flex; justify-content: space-between; position: relative;">
+            <!-- connector line -->
+            <div class="journey-connector"></div>
+            <!-- Step 1 -->
+            <div style="position:relative; z-index:1; width:160px; text-align:center;">
+              <div class="w-10 h-10 bg-surface-bright hairline-border rounded-xl flex items-center justify-center mx-auto mb-md">
+                <span class="font-code-data text-code-data">01</span>
+              </div>
+              <h4 class="font-headline-md text-headline-md uppercase mb-xs">Remote<br>Consultation</h4>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Initial digital triage and document audit via secure telemedicine platform.</p>
+            </div>
+            <!-- Step 2 -->
+            <div style="position:relative; z-index:1; width:160px; text-align:center;">
+              <div class="w-10 h-10 bg-surface-bright hairline-border rounded-xl flex items-center justify-center mx-auto mb-md">
+                <span class="font-code-data text-code-data">02</span>
+              </div>
+              <h4 class="font-headline-md text-headline-md uppercase mb-xs">Clinical<br>Assessment</h4>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">High-resolution imaging upload and in-person neurological evaluation.</p>
+            </div>
+            <!-- Step 3 -->
+            <div style="position:relative; z-index:1; width:160px; text-align:center;">
+              <div class="w-10 h-10 bg-surface-bright hairline-border rounded-xl flex items-center justify-center mx-auto mb-md">
+                <span class="font-code-data text-code-data">03</span>
+              </div>
+              <h4 class="font-headline-md text-headline-md uppercase mb-xs">Pre-Surgery<br>Planning</h4>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">3D simulation, surgical path mapping, and protocol selection review.</p>
+            </div>
+            <!-- Step 4 -->
+            <div style="position:relative; z-index:1; width:160px; text-align:center;">
+              <div class="w-10 h-10 bg-orange-brand rounded-xl flex items-center justify-center mx-auto mb-md">
+                <span class="font-code-data text-code-data text-white">04</span>
+              </div>
+              <h4 class="font-headline-md text-headline-md uppercase mb-xs">Surgery<br>&amp; ICU</h4>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Real-time neurophysiological monitoring. Class-10 cleanroom standards.</p>
+            </div>
+            <!-- Step 5 -->
+            <div style="position:relative; z-index:1; width:160px; text-align:center;">
+              <div class="w-10 h-10 bg-surface-bright hairline-border rounded-xl flex items-center justify-center mx-auto mb-md">
+                <span class="font-code-data text-code-data">05</span>
+              </div>
+              <h4 class="font-headline-md text-headline-md uppercase mb-xs">Rehabilitation<br>&amp; Follow-up</h4>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Protocol-driven recovery, remote 12-week telehealth, and neural feedback.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 6. QUALITY & SAFETY (DARK SECTION) ── -->
+      <section class="text-white py-24 px-margin-desktop mt-xl mx-4 md:mx-8 rounded-2xl bg-[#262323]">
+        <div class="max-w-screen-2xl mx-auto">
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-lg">
+            <div>
+              <h2 class="font-display-lg text-display-lg uppercase mb-md text-white" style="font-size: clamp(40px, 5vw, 80px); line-height: 1;">
+                Quality Standards
+              </h2>
+              <p class="font-body-lg text-body-lg text-surface-variant max-w-xl opacity-80">
+                Our performance metrics exceed WHO benchmarks, operating within an engineering-grade failure-prevention framework.
+              </p>
+            </div>
+            <div class="text-left md:text-right shrink-0">
+              <div class="font-code-data text-code-data text-orange-brand">METRIC // ERROR RATE</div>
+              <div class="font-display-sm text-display-sm text-white mt-1">0.3% GLOBAL</div>
+              <div class="font-body-sm text-body-sm text-surface-variant mt-1">ICU Infection Rate: Below WHO Threshold</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-xl">
+            <div class="space-y-md">
+              <span class="material-symbols-outlined text-4xl text-orange-brand">monitor_heart</span>
+              <h3 class="font-headline-md text-headline-md uppercase text-white">Intraoperative Monitoring</h3>
+              <p class="font-body-md text-body-md text-surface-variant opacity-70">Continuous neural stream data processing during interventions ensures zero-latency response to intraoperative changes.</p>
+            </div>
+            <div class="space-y-md">
+              <span class="material-symbols-outlined text-4xl text-orange-brand">task_alt</span>
+              <h3 class="font-headline-md text-headline-md uppercase text-white">Protocol Compliance Audit</h3>
+              <p class="font-body-md text-body-md text-surface-variant opacity-70">Mandatory adherence to verified clinical paths, cross-checked by autonomous surgical management software before every procedure.</p>
+            </div>
+            <div class="space-y-md">
+              <span class="material-symbols-outlined text-4xl text-orange-brand">history_edu</span>
+              <h3 class="font-headline-md text-headline-md uppercase text-white">Post-Op 90-Day Review</h3>
+              <p class="font-body-md text-body-md text-surface-variant opacity-70">Formal algorithmic analysis of every post-surgical outcome to iterate on and improve technical methodology across the team.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 7. INTERNATIONAL PATIENT SERVICES ── -->
+      <section class="px-margin-desktop py-xl max-w-screen-2xl mx-auto">
+        <h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-lg">International Patient Services</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+          <div class="hairline-border rounded-2xl p-lg hover:bg-surface-container transition-colors cursor-default group">
+            <span class="material-symbols-outlined text-3xl mb-md block group-hover:text-orange-brand transition-colors">travel_explore</span>
+            <h4 class="font-headline-md text-headline-md uppercase mb-sm">Visa &amp; Transfer Support</h4>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Full legal and logistical documentation for medical travel prioritization. Active coordination with 38 countries and embassy health departments.</p>
+          </div>
+          <div class="hairline-border rounded-2xl p-lg hover:bg-surface-container transition-colors cursor-default group">
+            <span class="material-symbols-outlined text-3xl mb-md block group-hover:text-orange-brand transition-colors">person_pin</span>
+            <h4 class="font-headline-md text-headline-md uppercase mb-sm">Personal Case Coordinator</h4>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">A dedicated bilingual coordinator assigned from first consultation through discharge — handling scheduling, communication, and logistics 24/7.</p>
+          </div>
+          <div class="hairline-border rounded-2xl p-lg hover:bg-surface-container transition-colors cursor-default group">
+            <span class="material-symbols-outlined text-3xl mb-md block group-hover:text-orange-brand transition-colors">settings_remote</span>
+            <h4 class="font-headline-md text-headline-md uppercase mb-sm">Remote Recovery Protocol</h4>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Structured post-op telehealth program with 12-week remote follow-up, supervised physiotherapy, and neural recovery benchmarking from your home country.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 8. CTA SECTION ── -->
+      <section class="cta-section hairline-t px-margin-desktop py-24 text-center">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="font-display-sm text-display-sm uppercase mb-md" style="font-size: clamp(28px, 3.5vw, 48px);">
+            Submit Medical Documents for Audit
+          </h2>
+          <p class="font-code-data text-code-data text-on-surface-variant mb-xl uppercase tracking-widest">
+            Guaranteed 48h primary review cycle — Senior surgical team assessment
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-xl max-w-xl mx-auto">
+            Our senior surgical team will review your case within 48 hours and provide a personalized protocol recommendation based on your imaging and clinical history.
+          </p>
+          <div class="flex flex-col md:flex-row gap-md justify-center items-center">
+            <button class="bg-orange-brand text-white px-xl py-md rounded-full font-label-caps uppercase hover:opacity-90 hover:scale-[1.02] transition-all flex items-center gap-2 shadow-sm">
+              <span class="material-symbols-outlined">upload_file</span>
+              Upload Documents
+            </button>
+            <button class="border-2 border-[#262323] text-[#262323] px-xl py-md rounded-full font-label-caps uppercase hover:bg-[#262323] hover:text-white transition-all flex items-center gap-2">
+              <span class="material-symbols-outlined">calendar_today</span>
+              Schedule Consultation
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── FOOTER ── -->
+      <footer class="bg-surface-container w-full px-margin-desktop py-xl hairline-t">
+        <div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-lg">
+          <div>
+            <div class="font-headline-md text-headline-md font-bold mb-sm">PRECISION MEDICAL</div>
+            <div class="font-code-data text-code-data uppercase text-on-surface-variant">© 2026 NEUROSURGERY CLINIC. PRECISION IN PRACTICE.</div>
+          </div>
+          <div class="flex flex-wrap gap-lg">
+            <a class="font-code-data text-code-data uppercase text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">Privacy Protocol</a>
+            <a class="font-code-data text-code-data uppercase text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">Terms of Service</a>
+            <a class="font-code-data text-code-data uppercase text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all duration-300" href="#">Patient Data Protection</a>
+          </div>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- ═══ SCRIPTS ═══ -->
+  <script type="module" src="/main.js"></script>
+
+  <script>
+    // Animated stat counter on scroll into view
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const finalVal  = parseFloat(el.dataset.val);
+            const suffix    = el.dataset.suffix || '';
+            const decimals  = parseInt(el.dataset.decimal || '0');
+            const isComma   = finalVal >= 1000;
+            animateStat(el, 0, finalVal, 1400, suffix, decimals, isComma);
+            observer.unobserve(el);
+          }
+        });
+      }, { threshold: 0.6 });
+
+      document.querySelectorAll('.stat-num').forEach(el => observer.observe(el));
+
+      function animateStat(el, start, end, duration, suffix, decimals, comma) {
+        let startTs = null;
+        const step = (ts) => {
+          if (!startTs) startTs = ts;
+          const prog = Math.min((ts - startTs) / duration, 1);
+          const eased = 1 - Math.pow(1 - prog, 3); // ease-out cubic
+          let val = (start + eased * (end - start));
+          let formatted = decimals > 0
+            ? val.toFixed(decimals)
+            : Math.floor(val).toLocaleString('en-US');
+          el.textContent = formatted + suffix;
+          if (prog < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      }
+    });
+  </script>
+</body>
+</html>
