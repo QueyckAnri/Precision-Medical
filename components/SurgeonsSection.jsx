@@ -50,6 +50,9 @@ export default function SurgeonsSection() {
   const clickedCardIndex = useRef(null);
   const autoRotateControls = useRef(null);
   const wheelSnapTimeout = useRef(null);
+  const touchStartX = useRef(0);
+  const touchStartRot = useRef(0);
+  const touchStartTime = useRef(0);
 
   // Synchronize MotionValue to React State for 3D card layout calculations
   useEffect(() => {
@@ -229,8 +232,44 @@ export default function SurgeonsSection() {
     }
   };
 
+  // Touch handlers (separate from pointer events for smooth mobile carousel)
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartRot.current = rotationValue.get();
+    touchStartTime.current = Date.now();
+    setIsDragging(true);
+    if (autoRotateControls.current) {
+      autoRotateControls.current.stop();
+      autoRotateControls.current = null;
+    }
+  };
+
+  const handleTouchMove = (e) => {
+    e.preventDefault(); // Prevent page scroll while rotating carousel
+    const dx = e.touches[0].clientX - touchStartX.current;
+    const dRot = -dx / 280;
+    rotationValue.set(touchStartRot.current + dRot);
+  };
+
+  const handleTouchEnd = (e) => {
+    setIsDragging(false);
+    const dx = (e.changedTouches[0]?.clientX ?? touchStartX.current) - touchStartX.current;
+    const duration = Date.now() - touchStartTime.current;
+
+    // Tap detection: tiny movement, fast
+    if (Math.abs(dx) < 8 && duration < 300) {
+      const currentVal = rotationValue.get();
+      animate(rotationValue, Math.round(currentVal), { type: 'spring', stiffness: 150, damping: 22 });
+      return;
+    }
+
+    // Momentum snap
+    const currentVal = rotationValue.get();
+    animate(rotationValue, Math.round(currentVal), { type: 'spring', stiffness: 150, damping: 22 });
+  };
+
   return (
-    <section className="relative w-full h-full flex flex-col justify-between items-center py-4 overflow-hidden bg-[#F9F9F9]">
+    <section className="relative w-full h-full flex flex-col justify-between items-center py-4 overflow-hidden bg-[#F9F9F9]" style={{ touchAction: 'none' }}>
       {/* Background stretched "OUR SURGEONS" text (using fluid responsive clamp sizing) */}
       <div
         className="absolute left-[50px] right-[50px] top-[clamp(40px,7vh,70px)] -z-10 pointer-events-none select-none opacity-[0.06] flex justify-between uppercase"
@@ -262,7 +301,7 @@ export default function SurgeonsSection() {
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Do you know your doctor's name? Start typing here..."
             className="w-full h-14 pl-14 pr-6 rounded-full bg-[#262323] text-white border-none focus:outline-none focus:ring-2 focus:ring-[#F55F24] placeholder:text-white/40 transition-all font-sans"
-            style={{ fontSize: '20px' }}
+            style={{ fontSize: 'clamp(14px, 2.5vw, 20px)' }}
           />
         </div>
       </div>
@@ -271,11 +310,15 @@ export default function SurgeonsSection() {
       <div
         ref={containerRef}
         className="relative w-full flex-1 min-h-[300px] flex items-center justify-center cursor-grab active:cursor-grabbing select-none"
+        style={{ touchAction: 'none' }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         <div className="relative w-full h-full transform-style-3d perspective-1500 font-sans">
           {SURGEONS.map((surgeon, index) => {
@@ -532,7 +575,7 @@ function DoctorModal({ surgeon, onClose }) {
         animate={{ scale: 1, y: 0, opacity: 1 }}
         exit={{ scale: 0.95, y: 15, opacity: 0 }}
         transition={{ duration: 0.3, ease: 'easeOut' }}
-        className="w-full max-w-5xl h-[700px] max-h-[90vh] bg-[#F9F9F9] rounded-3xl overflow-hidden shadow-2xl relative grid grid-cols-1 md:grid-cols-[330px_1fr] border border-black/5 font-sans"
+        className="w-full max-w-5xl max-h-[90vh] bg-[#F9F9F9] rounded-3xl overflow-y-auto shadow-2xl relative border border-black/5 font-sans"
       >
         {/* Minimal High-Tech Close Button [✕] in top-right with neon hover state */}
         <button
@@ -543,10 +586,11 @@ function DoctorModal({ surgeon, onClose }) {
           ✕
         </button>
 
-        {/* ⬅️ LEFT COLUMN: Visual & Conversion (Fixed Status) */}
-        <div className="border-r border-black/5 p-6 flex flex-col gap-4 overflow-y-auto bg-white h-full justify-between shrink-0">
-          {/* Static premium portrait container with dashed border (shrunk to 220px to fit button) */}
-          <div className="w-full h-[220px] rounded-2xl overflow-hidden border-2 border-dashed border-[#F55F24]/30 bg-black/5 relative shrink-0">
+        {/* Two-column grid: stacks on mobile, side-by-side on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-[330px_1fr]">
+        <div className="border-b md:border-b-0 md:border-r border-black/5 p-6 flex flex-col gap-4 bg-white shrink-0">
+          {/* Static premium portrait container */}
+          <div className="w-full h-[200px] md:h-[220px] rounded-2xl overflow-hidden border-2 border-dashed border-[#F55F24]/30 bg-black/5 relative shrink-0">
             <img
               src={surgeon.photo}
               alt={surgeon.name}
@@ -581,7 +625,7 @@ function DoctorModal({ surgeon, onClose }) {
         </div>
 
         {/* ➡️ RIGHT COLUMN: Dynamic Interactive Content */}
-        <div className="flex flex-col overflow-hidden h-full bg-white/60">
+        <div className="flex flex-col overflow-hidden bg-white/60">
           {/* Profile Basic Title */}
           <div className="p-8 pb-4 border-b border-black/5">
             <span className="text-[11px] font-bold text-[#F55F24] tracking-widest uppercase font-mono">
@@ -821,6 +865,7 @@ function DoctorModal({ surgeon, onClose }) {
             </AnimatePresence>
           </div>
         </div>
+        </div>{/* end grid */}
       </motion.div>
     </motion.div>
   );

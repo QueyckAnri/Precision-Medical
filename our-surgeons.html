@@ -126,6 +126,12 @@
       overflow: hidden !important;
       height: 100vh !important;
     }
+    /* On mobile, account for taller 2-row header (~110px) */
+    @media (max-width: 768px) {
+      main {
+        height: calc(100dvh - 110px) !important;
+      }
+    }
     /* Ensure the surgeons-root fills available space */
     #surgeons-root {
       width: 100%;
@@ -166,7 +172,7 @@
     </header>
 
     <!-- ── MAIN: React mount point ──────────────────────────────── -->
-    <main class="h-[calc(100vh-80px)] w-full overflow-hidden flex flex-col">
+    <main class="h-[calc(100vh-80px)] w-full overflow-hidden flex flex-col" style="height: calc(100dvh - 80px);">
       <div id="surgeons-root" class="w-full flex-1 min-h-0"></div>
     </main>
 
