@@ -539,7 +539,7 @@ function DoctorModal({ surgeon, onClose }) {
 
   const handleBooking = () => {
     // Redirect to preselected doctor consult booking route
-    window.location.href = `/consult.html?surgeon=${surgeon.id}`;
+    window.location.href = `consult.html?surgeon=${surgeon.id}`;
   };
 
   useEffect(() => {
