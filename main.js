@@ -12,19 +12,24 @@
 
   function launchCinematicScroll() {
     if (running) {
-      // Second click = abort
       cancelAnimationFrame(rafId);
       running = false;
       rafId = null;
       return;
     }
-    if (!isScrollable()) return;
     running = true;
 
     window.scrollTo({ top: 0, behavior: 'instant' });
 
     setTimeout(() => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      // Use the larger of the two — browser inconsistency between documentElement and body
+      const totalHeight = Math.max(
+        document.documentElement.scrollHeight,
+        document.body.scrollHeight
+      ) - window.innerHeight;
+
+      if (totalHeight <= 0) { running = false; return; }
+
       const duration = Math.max(6000, totalHeight * 2.5);
       const startTime = performance.now();
 
