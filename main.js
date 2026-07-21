@@ -98,12 +98,11 @@
     }
   });
 
-  // Inject after DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', injectButton);
-  } else {
-    injectButton();
-  }
+  // Inject after ALL resources load — only then is scrollHeight reliable
+  window.addEventListener('load', () => {
+    // Extra tick to let layout settle after load
+    setTimeout(injectButton, 50);
+  });
 })();
 
 // --- PAGE TRANSITION ENTRY STATE SETUP ---
