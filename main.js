@@ -48,7 +48,8 @@
   }
 
   function injectButton() {
-    if (!isScrollable()) return;
+    // Skip on the fixed hero page (index.html) — it has no real scroll
+    if (document.querySelector('.hero-root')) return;
 
     btn = document.createElement('button');
     btn.title = 'Scroll preview';
@@ -98,11 +99,13 @@
     }
   });
 
-  // Inject after ALL resources load — only then is scrollHeight reliable
-  window.addEventListener('load', () => {
-    // Extra tick to let layout settle after load
-    setTimeout(injectButton, 50);
-  });
+  // Inject immediately on DOMContentLoaded (button presence doesn't depend on scroll height)
+  // and also re-check on load in case it was skipped
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', injectButton);
+  } else {
+    injectButton();
+  }
 })();
 
 // --- PAGE TRANSITION ENTRY STATE SETUP ---
